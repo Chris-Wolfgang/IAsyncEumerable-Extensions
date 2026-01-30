@@ -26,6 +26,10 @@
   </Folder>
   <Folder Name="/benchmarks/" />
   <Folder Name="/examples/" />
-  <Folder Name="/src/" />
-  <Folder Name="/tests/" />
+  <Folder Name="/src/">
+    <Project Path="src/Wolfgang.Extensions.IAsyncEnumerable/Wolfgang.Extensions.IAsyncEnumerable.csproj" Id="46f709fc-f4ce-4013-9254-c76bd0ab19ae" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="Wolfgang.Extensions.IAsyncEnumerable.Tests.Unit/Wolfgang.Extensions.IAsyncEnumerable.Tests.Unit.csproj" Id="ff3f9dca-4375-4405-afb7-943b21604af4" />
+  </Folder>
 </Solution>
