@@ -12,11 +12,11 @@ on:
   pull_request: 
     branches: 
       - main
-      - develop
     paths-ignore:
       - '**.md'
       - 'docs/**'
       - '.github/workflows/**'
+
 jobs:
   # ============================================================================
   # STAGE 1: Linux - .NET Core/5+ Tests with Coverage Gate
