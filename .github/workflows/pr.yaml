@@ -50,7 +50,7 @@ jobs:
       - name: Check Code Formatting
         run: |
           # Find solution file
-          solution=$(find . -maxdepth 2 -name "*.sln" -o -name "*.slnx" | head -n 1)
+          solution=$(find . -maxdepth 2 \( -name "*.sln" -o -name "*.slnx" \) | head -n 1)
           
           if [ -n "$solution" ]; then
             echo "Checking formatting for: $solution"
