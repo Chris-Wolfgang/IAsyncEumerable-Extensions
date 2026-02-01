@@ -47,6 +47,9 @@ jobs:
             9.0.x
             10.0.x
 
+      - name: Install dotnet-format
+        run: dotnet tool install -g dotnet-format
+
       - name: Check Code Formatting
         run: |
           # Find solution file
