@@ -48,7 +48,7 @@ M:System.IO.File.AppendAllText(System.String,System.String,System.Text.Encoding)
 M:System.IO.File.AppendAllLines(System.String,System.Collections.Generic.IEnumerable{System.String}); Use 'File.AppendAllLinesAsync()' instead
 M:System.IO.File.AppendAllLines(System.String,System.Collections.Generic.IEnumerable{System.String},System.Text.Encoding); Use 'File.AppendAllLinesAsync()' instead
 # Synchronous Stream operations - Use async versions
-M:System.IO.Stream.Read(System.Byte[],System.Int32,System.Int32); Use 'ReadAsync()' instead
+M:System.IO.FileStream.Read(System.Byte[],System.Int32,System.Int32); Use 'ReadAsync()' instead
 M:System.IO.Stream.Write(System.Byte[],System.Int32,System.Int32); Use 'WriteAsync()' instead
 M:System.IO.Stream.CopyTo(System.IO.Stream); Use 'CopyToAsync()' instead
 M:System.IO.Stream.CopyTo(System.IO.Stream,System.Int32); Use 'CopyToAsync()' instead
