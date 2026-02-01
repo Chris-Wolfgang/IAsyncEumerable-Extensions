@@ -162,7 +162,7 @@ dotnet restore
 dotnet build --configuration Release
 ```
 
-**Note:** Release builds treat all analyzer warnings as errors (`<TreatWarningsAsErrors>true</TreatWarningsAsErrors>`).
+**Note:** All builds treat analyzer warnings as errors (`<TreatWarningsAsErrors>true</TreatWarningsAsErrors>`).
 
 ### Run Tests
 

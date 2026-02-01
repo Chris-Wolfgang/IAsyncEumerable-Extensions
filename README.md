@@ -23,7 +23,7 @@ dotnet add package Wolfgang.Extensions.IAsyncEnumerable
 using Wolfgang.Extensions.IAsyncEnumerable;
 
 // Chunk an async stream into batches
-await foreach (var chunk in asyncStream.ChunkAsync(batchSize: 100, cancellationToken))
+await foreach (var chunk in asyncStream.ChunkAsync(maxChunkSize: 100, token: cancellationToken))
 {
     // Process each chunk (ICollection<T>)
     await ProcessBatchAsync(chunk);
@@ -68,10 +68,10 @@ await foreach (var batch in numbers.ChunkAsync(50))
 ## 🎯 Target Frameworks
 
 This library supports multiple .NET versions:
-- **.NET Framework 4.6.2** (via `netstandard2.0`)
-- **.NET Standard 2.0**
-- **.NET 8.0**
-- **.NET 10.0**
+- **.NET Framework 4.6.2** (`net462`)
+- **.NET Standard 2.0** (`netstandard2.0`)
+- **.NET 8.0** (`net8.0`)
+- **.NET 10.0** (`net10.0`)
 
 ---
 
@@ -116,8 +116,8 @@ This library uses **`BannedSymbols.txt`** to prohibit synchronous APIs and enfor
 
 ```bash
 # Clone the repository
-git clone https://github.com/Chris-Wolfgang/Wolfgang.Extensions.IAsyncEnumerable-Extensions.git
-cd Wolfgang.Extensions.IAsyncEnumerable-Extensions
+git clone https://github.com/Chris-Wolfgang/IAsyncEumerable-Extensions.git
+cd IAsyncEumerable-Extensions
 
 # Restore dependencies
 dotnet restore
@@ -160,7 +160,7 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for:
 
 ## 📄 License
 
-This project is licensed under the **Mozilla Public License 2.0** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **Mozilla Public License 2.0 (MPL-2.0)**. The [LICENSE](LICENSE) file in this repository is the authoritative source for licensing terms. Note that older versions of the `Wolfgang.Extensions.IAsyncEnumerable` NuGet package may still declare the MIT license in their metadata; future releases will update the NuGet `PackageLicenseExpression` to `MPL-2.0` to match this repository.
 
 ---
 
