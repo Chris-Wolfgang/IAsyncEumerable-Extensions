@@ -38,6 +38,9 @@ charset = utf-8-bom
 # C# files
 [*.cs]
 
+# SA0001 - Disable XML documentation file requirement
+dotnet_diagnostic.SA0001.severity = none
+
 # .NET Code Analysis Rules
 # Enable .NET analyzers with conservative defaults
 dotnet_analyzer_diagnostic.severity = suggestion
@@ -280,6 +283,9 @@ dotnet_diagnostic.SA1600.severity = warning
 dotnet_diagnostic.SA1300.severity = none
 dotnet_diagnostic.IDE1006.severity = none
 dotnet_diagnostic.CA1707.severity = none
+
+# Allow synchronous CancellationTokenSource.Cancel() in tests
+dotnet_diagnostic.CA1849.severity = none
 
 # Relax async/await analyzer rules for tests
 dotnet_diagnostic.AsyncFixer01.severity = none    # Allow unnecessary async/await in tests
