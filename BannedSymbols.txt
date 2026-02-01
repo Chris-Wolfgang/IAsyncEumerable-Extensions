@@ -67,12 +67,6 @@ M:System.IO.StreamWriter.Write(System.Char[],System.Int32,System.Int32); Use 'Wr
 M:System.IO.StreamWriter.WriteLine(); Use 'WriteLineAsync()' instead
 M:System.IO.StreamWriter.WriteLine(System.String); Use 'WriteLineAsync()' instead
 M:System.IO.StreamWriter.Flush(); Use 'FlushAsync()' instead
-# TextReader
-M:System.IO.TextReader.ReadToEnd(); Use 'ReadToEndAsync()' instead
-M:System.IO.TextReader.ReadLine(); Use 'ReadLineAsync()' instead
-M:System.IO.TextReader.Read(); Use 'ReadAsync()' instead
-M:System.IO.TextReader.Read(System.Char[],System.Int32,System.Int32); Use 'ReadAsync()' instead
-M:System.IO.TextReader.ReadBlock(System.Char[],System.Int32,System.Int32); Use 'ReadBlockAsync()' instead
 # TextWriter
 M:System.IO.TextWriter.Write(System.String); Use 'WriteAsync()' instead
 M:System.IO.TextWriter.Write(System.Char); Use 'WriteAsync()' instead
