@@ -36,10 +36,9 @@ public class ChunkAsyncBenchmarks
 
 
 
-    [Benchmark]
-	public async Task<int> ChunkAsyncV2()
-        => await ConsumeAsync(static (source, size, token) => source.ChunkAsyncV2(size, token));
-
+    //[Benchmark]
+    //public async Task<int> ChunkAsyncV2()
+    //    => await ConsumeAsync(static (source, size, token) => source.ChunkAsyncV2(size, token));
 
 
 
