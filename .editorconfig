@@ -182,31 +182,50 @@ dotnet_diagnostic.SA1600.severity = warning
 dotnet_diagnostic.SA1601.severity = warning
 dotnet_diagnostic.SA1602.severity = warning
 
-# Naming - error by default
+# Naming - error by default (strict)
 dotnet_diagnostic.SA1300.severity = error
+dotnet_diagnostic.IDE1006.severity = error
+dotnet_diagnostic.CA1707.severity = error
 
 # Source code - strict rules
 [src/**/*.cs]
 dotnet_diagnostic.SA1300.severity = error
+dotnet_diagnostic.IDE1006.severity = error
+dotnet_diagnostic.CA1707.severity = error
 dotnet_diagnostic.SA1600.severity = warning
 
 # Test projects - relaxed naming, no doc requirements
 [tests/**/*.cs]
+# Allow Test_Method_Names_With_Underscores
 dotnet_diagnostic.SA1300.severity = none
+dotnet_diagnostic.IDE1006.severity = none
+dotnet_diagnostic.CA1707.severity = none
+
+# No documentation required for tests
 dotnet_diagnostic.SA1600.severity = none
 dotnet_diagnostic.SA1601.severity = none
 dotnet_diagnostic.SA1602.severity = none
 
 # Benchmark projects - relaxed naming, no doc requirements
 [benchmarks/**/*.cs]
+# Allow Benchmark_Method_Names
 dotnet_diagnostic.SA1300.severity = none
+dotnet_diagnostic.IDE1006.severity = none
+dotnet_diagnostic.CA1707.severity = none
+
+# No documentation required for benchmarks
 dotnet_diagnostic.SA1600.severity = none
 dotnet_diagnostic.SA1601.severity = none
 dotnet_diagnostic.SA1602.severity = none
 
 # Example projects - relaxed naming, docs encouraged
 [examples/**/*.cs]
+# Allow Example_Method_Names
 dotnet_diagnostic.SA1300.severity = none
+dotnet_diagnostic.IDE1006.severity = none
+dotnet_diagnostic.CA1707.severity = none
+
+# Documentation helpful but not required
 dotnet_diagnostic.SA1600.severity = suggestion
 dotnet_diagnostic.SA1601.severity = suggestion
 dotnet_diagnostic.SA1602.severity = suggestion
