@@ -37,17 +37,18 @@ jobs:
         dotnet-version: |
           8.0.x
 
-    # Build only the main source projects (exclude .NET Framework 4.x)
+    # Build the source projects
     - name: Build for CodeQL Analysis
       run: |
         echo "Building C# projects for CodeQL analysis..."
         
-        # Find all .csproj files excluding dotnet4 and test projects
-        projects=$(find ./src -type f -name "*.csproj" 2>/dev/null | grep -iv "dotnet4" || true)
+        # Find all .csproj files in src directory
+        projects=$(find ./src -type f -name "*.csproj" 2>/dev/null || true)
         
         if [ -z "$projects" ]; then
-          echo "No source projects found in ./src, trying root level..."
-          projects=$(find . -maxdepth 2 -type f -name "*.csproj" | grep -v "test" | grep -iv "dotnet4" | head -n 5)
+          echo "No source projects found in ./src"
+          echo "Searching entire repository..."
+          projects=$(find . -type f -name "*.csproj" | grep -v "test" | grep -v "benchmark" | head -n 5)
         fi
         
         if [ -z "$projects" ]; then
@@ -64,9 +65,8 @@ jobs:
         # Build each project
         for proj in $projects; do
           echo "Building: $proj"
-          dotnet build "$proj" --configuration Release --framework net8.0 || \
           dotnet build "$proj" --configuration Release || \
-          echo "⚠️ Skipping $proj (build failed or incompatible framework)"
+          echo "⚠️ Skipping $proj (build failed)"
         done
         
         echo ""
