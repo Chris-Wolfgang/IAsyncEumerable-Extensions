@@ -47,6 +47,8 @@ dotnet_analyzer_diagnostic.severity = suggestion
 
 # IDE (Code Style) Rules
 dotnet_diagnostic.IDE0005.severity = suggestion   # Remove unnecessary usings
+# Allow var usage
+dotnet_diagnostic.IDE0008.severity = none        # Use explicit type instead of var
 
 # CA (Code Analysis) Rules - Set defaults
 dotnet_diagnostic.CA1000.severity = warning
