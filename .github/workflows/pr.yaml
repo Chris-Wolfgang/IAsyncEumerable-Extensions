@@ -24,6 +24,7 @@ jobs:
   test-linux-core: 
     name: "Stage 1: Linux Tests (.NET 5.0-10.0) + Coverage Gate"
     runs-on:  ubuntu-latest
+    if: github.repository != 'Chris-Wolfgang/repo-template'
     
     steps:
       - name: Checkout code
@@ -215,6 +216,7 @@ jobs:
     name: "Stage 2a: Windows Tests (.NET 5.0-10.0)"
     runs-on: windows-latest
     needs: test-linux-core
+    if: github.repository != 'Chris-Wolfgang/repo-template'
     
     steps:
       - name: Checkout code
@@ -280,6 +282,7 @@ jobs:
     name: "Stage 2b: macOS Tests (.NET 6.0-10.0)"
     runs-on: macos-latest
     needs: test-linux-core
+    if: github.repository != 'Chris-Wolfgang/repo-template'
     
     steps:
       - name:  Checkout code
@@ -395,6 +398,7 @@ jobs:
     name: "Stage 3: Windows .NET Framework Tests (4.6.2-4.8.1)"
     runs-on: windows-latest
     needs: [test-windows-core, test-macos-core]
+    if: github.repository != 'Chris-Wolfgang/repo-template'
     
     steps: 
       - name: Checkout code
@@ -467,6 +471,7 @@ jobs:
   security-scan:
     name: "Security Scan (DevSkim)"
     runs-on: ubuntu-latest
+    if: github.repository != 'Chris-Wolfgang/repo-template'
     
     steps:
       - name: Checkout code
