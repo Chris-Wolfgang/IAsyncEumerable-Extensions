@@ -33,13 +33,15 @@
 *.md text eol=lf
 *.txt text eol=lf
 
+# SVG files (XML-based text)
+*.svg text eol=lf
+
 # Denote all files that are truly binary and should not be modified
 *.png binary
 *.jpg binary
 *.jpeg binary
 *.gif binary
 *.ico binary
-*.svg binary
 *.pdf binary
 *.dll binary
 *.exe binary
