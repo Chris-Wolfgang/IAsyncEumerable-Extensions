@@ -158,7 +158,7 @@ dotnet_diagnostic.S3925.severity = warning       # "ISerializable" should be imp
 dotnet_diagnostic.S3926.severity = warning       # Deserialization methods should be provided for "OptionalField" members
 dotnet_diagnostic.S3927.severity = warning       # Serialization event handlers should be implemented correctly
 dotnet_diagnostic.S4049.severity = suggestion    # Properties should be preferred
-dotnet_diagnostic.S4056.severity = warning       # Overloads with a "CultureInfo" or an "IFormatProvider" parameter should be used
+dotnet_diagnostic.S4056.severity = suggestion    # Overloads with a "CultureInfo" or an "IFormatProvider" parameter should be used
 dotnet_diagnostic.S4136.severity = warning       # Method overloads should be grouped together
 
 # SecurityCodeScan Rules
