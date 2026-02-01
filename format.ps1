@@ -29,7 +29,7 @@ Write-Host "🎨 Code Formatting Script" -ForegroundColor Cyan
 Write-Host ""
 
 # Find solution file
-$solutions = Get-ChildItem -Path . -Filter "*.sln*" -File | Select-Object -First 1
+$solutions = Get-ChildItem -Path . -File | Where-Object { $_.Extension -eq '.sln' -or $_.Extension -eq '.slnx' } | Select-Object -First 1
 
 if (-not $solutions)
 {
