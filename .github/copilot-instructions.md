@@ -119,7 +119,7 @@ When using this template, configure these settings in GitHub (detailed in `SETUP
 
 ### Root Directory Files
 - `README.md` - Basic template description (update for your project)
-- `LICENSE` - Mozilla Public License 2.0
+- `LICENSE` - MIT License
 - `SETUP.md` - Template setup instructions (delete after setup)
 - `.editorconfig` - Code style configuration
 - `.gitignore` - .NET-specific gitignore
