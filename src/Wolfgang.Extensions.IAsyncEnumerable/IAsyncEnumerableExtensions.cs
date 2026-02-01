@@ -46,7 +46,7 @@ public static class IAsyncEnumerableExtensions
 
         var enumerator = source.GetAsyncEnumerator(token);
 
-        if (!await enumerator.MoveNextAsync())
+        if (!await enumerator.MoveNextAsync().ConfigureAwait(false))
         {
             yield break;
         }
@@ -66,7 +66,7 @@ public static class IAsyncEnumerableExtensions
                 index = 0;
             }
 
-        } while (await enumerator.MoveNextAsync());
+        } while (await enumerator.MoveNextAsync().ConfigureAwait(false));
 
         if (index == 0)
         {
@@ -77,5 +77,3 @@ public static class IAsyncEnumerableExtensions
         yield return array;
     }
 }
-
-
