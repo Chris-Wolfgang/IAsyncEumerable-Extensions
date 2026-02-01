@@ -89,10 +89,10 @@ T:System.Runtime.Serialization.Formatters.Soap.SoapFormatter; Insecure and depre
 # DateTime Anti-patterns - Prefer DateTimeOffset for timezone safety
 P:System.DateTime.Now; Use 'DateTimeOffset.UtcNow' or 'DateTimeOffset.Now' for timezone-aware operations
 # Synchronous Parallel operations - Use async alternatives
-M:System.Threading.Tasks.Parallel.For(System.Int32,System.Int32,System.Action{System.Int32}); Synchronous - use async alternatives like 'Parallel.ForEachAsync()' or custom async patterns
-M:System.Threading.Tasks.Parallel.For(System.Int32,System.Int32,System.Threading.Tasks.ParallelOptions,System.Action{System.Int32}); Synchronous - use async alternatives
-M:System.Threading.Tasks.Parallel.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0}); Synchronous - use 'Parallel.ForEachAsync()' instead (.NET 6+)
-M:System.Threading.Tasks.Parallel.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Threading.Tasks.ParallelOptions,System.Action{``0}); Synchronous - use 'Parallel.ForEachAsync()' instead (.NET 6+)
+M:System.Threading.Tasks.Parallel.For(System.Int32,System.Int32,System.Action{System.Int32}); Synchronous - prefer async concurrency patterns (e.g., 'Task.WhenAll()', dataflow) or 'Parallel.ForEachAsync()' on modern .NET versions
+M:System.Threading.Tasks.Parallel.For(System.Int32,System.Int32,System.Threading.Tasks.ParallelOptions,System.Action{System.Int32}); Synchronous - prefer async concurrency patterns (e.g., 'Task.WhenAll()', dataflow) or 'Parallel.ForEachAsync()' on modern .NET versions
+M:System.Threading.Tasks.Parallel.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0}); Synchronous - prefer async concurrency patterns (e.g., 'Task.WhenAll()', dataflow) or 'Parallel.ForEachAsync()' on modern .NET versions
+M:System.Threading.Tasks.Parallel.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Threading.Tasks.ParallelOptions,System.Action{``0}); Synchronous - prefer async concurrency patterns (e.g., 'Task.WhenAll()', dataflow) or 'Parallel.ForEachAsync()' on modern .NET versions
 M:System.Threading.Tasks.Parallel.Invoke(System.Action[]); Synchronous - use 'Task.WhenAll()' with async delegates instead
 # Console Blocking operations - Avoid in async code
 M:System.Console.ReadLine(); Blocking - avoid in async code paths
