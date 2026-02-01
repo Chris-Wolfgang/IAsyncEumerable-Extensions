@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>
+			net462;
+			netstandard2.0;
+			net8.0;
+			net10.0
+		</TargetFrameworks>
+		<LangVersion>14</LangVersion>
+		<Nullable>enable</Nullable>
+		<Version>0.1.0</Version>
+		<Title>$(AssemblyName)</Title>
+		<Authors>Chris Wolfgang</Authors>
+		<Description>A collection of extension methods for IAsyncEnumerable</Description>
+		<Copyright>Copyright 2026 Chris Wolfgang </Copyright>
+		<PackageProjectUrl>https://github.com/Chris-Wolfgang/Wolfgang.Extensions.IAsyncEnumerable-Extensions</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<AssemblyVersion>1.0.0</AssemblyVersion>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<SignAssembly>False</SignAssembly>
+
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net8.0' OR '$(TargetFramework)' == 'net10.0'">
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.2" />
+	</ItemGroup>
+
+</Project>

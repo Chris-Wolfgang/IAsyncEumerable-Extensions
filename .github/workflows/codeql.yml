@@ -37,39 +37,23 @@ jobs:
         dotnet-version: |
           8.0.x
 
-    # Build the source projects
     - name: Build for CodeQL Analysis
       run: |
-        echo "Building C# projects for CodeQL analysis..."
+        echo "Building solution for CodeQL analysis..."
         
-        # Find all .csproj files in src directory
-        projects=$(find ./src -type f -name "*.csproj" 2>/dev/null || true)
+        # Find solution file (.sln or .slnx)
+        solution=$(find . -maxdepth 2 -name "*.sln" -o -name "*.slnx" | head -n 1)
         
-        if [ -z "$projects" ]; then
-          echo "No source projects found in ./src"
-          echo "Searching entire repository..."
-          projects=$(find . -type f -name "*.csproj" | grep -v "test" | grep -v "benchmark" | head -n 5)
+        if [ -n "$solution" ]; then
+          echo "Found solution: $solution"
+          dotnet restore "$solution"
+          dotnet build "$solution" --configuration Release --no-restore
+        else
+          echo "No solution file found, building all projects..."
+          dotnet restore
+          dotnet build --configuration Release --no-restore
         fi
         
-        if [ -z "$projects" ]; then
-          echo "❌ No C# projects found!"
-          exit 1
-        fi
-        
-        echo "=========================================="
-        echo "Projects to build for analysis:"
-        echo "=========================================="
-        echo "$projects"
-        echo ""
-        
-        # Build each project
-        for proj in $projects; do
-          echo "Building: $proj"
-          dotnet build "$proj" --configuration Release || \
-          echo "⚠️ Skipping $proj (build failed)"
-        done
-        
-        echo ""
         echo "✅ Build completed for CodeQL analysis"
 
     - name: Perform CodeQL Analysis
