@@ -116,8 +116,8 @@ This library uses **`BannedSymbols.txt`** to prohibit synchronous APIs and enfor
 
 ```bash
 # Clone the repository
-git clone https://github.com/Chris-Wolfgang/IAsyncEumerable-Extensions.git
-cd IAsyncEumerable-Extensions
+git clone https://github.com/Chris-Wolfgang/Wolfgang.Extensions.IAsyncEnumerable-Extensions.git
+cd Wolfgang.Extensions.IAsyncEnumerable-Extensions
 
 # Restore dependencies
 dotnet restore
