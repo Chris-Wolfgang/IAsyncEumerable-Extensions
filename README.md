@@ -1,3 +1,3 @@
-# Repository Template
+# IAsyncEnumerable Extensions
 
-This repository is intended to be used as a template for creating other repositories.
+A collection of extension methods for `IAsyncEnumerable<T>` to make working with async sequences easier and more efficient.

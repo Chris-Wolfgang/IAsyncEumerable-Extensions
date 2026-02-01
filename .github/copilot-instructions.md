@@ -2,12 +2,12 @@
 
 ## Repository Summary
 
-This is a **repository template** for creating new .NET repositories. It provides a standardized structure with comprehensive GitHub integration, CI/CD workflows, and development tooling. The template is designed for .NET 8.0 projects using C# and follows Microsoft's recommended project organization patterns.
+This is a .NET library project that provides extension methods for `IAsyncEnumerable<T>`. The library is designed to make working with async sequences easier and more efficient, with features like chunking, batching, and other utility methods.
 
-**Repository Type**: Template (not a working project)  
-**Target Platform**: .NET 8.0  
+**Repository Type**: .NET Library Project  
+**Target Frameworks**: .NET Framework 4.6.2, .NET Standard 2.0, .NET 8.0, .NET 10.0  
 **Primary Language**: C#  
-**Size**: Small template (~15 configuration files, empty project folders)  
+**Package Name**: Wolfgang.Extensions.IAsyncEnumerable  
 
 ## Build and Validation Instructions
 
@@ -16,8 +16,7 @@ This is a **repository template** for creating new .NET repositories. It provide
 - ReportGenerator tool (installed via `dotnet tool install -g dotnet-reportgenerator-globaltool`)
 - DevSkim CLI (installed via `dotnet tool install --global Microsoft.CST.DevSkim.CLI`)
 
-### Build Process (For Repositories Created from This Template)
-**IMPORTANT**: This template has no buildable projects. These commands apply to repositories created FROM this template.
+### Build Process
 
 1. **Restore Dependencies** (always run first):
    ```bash
@@ -61,33 +60,27 @@ This is a **repository template** for creating new .NET repositories. It provide
 
 ## Project Layout and Architecture
 
-### Standard Directory Structure
+### Directory Structure
 ```
 root/
-├── MySolution.sln              # Solution file (create in root)
-├── src/                        # Application projects
-│   ├── MyApp/
-│   │   └── MyApp.csproj
-│   └── MyLib/
-│       └── MyLib.csproj
-├── tests/                      # Test projects (required)
-│   ├── MyApp.Tests/
-│   │   └── MyApp.Tests.csproj
-│   └── MyLib.Tests/
-│       └── MyLib.Tests.csproj
-├── benchmarks/                 # Performance benchmarks (optional)
-│   └── MyApp.Benchmarks/
-│       └── MyApp.Benchmarks.csproj
-├── examples/                   # Example projects (optional)
-├── docs/                       # Documentation
-└── .github/                    # GitHub configuration
+├── IAsyncEnumerable Extensions.slnx    # Solution file
+├── src/                                # Library projects
+│   └── Wolfgang.Extensions.IAsyncEnumerable/
+│       ├── Wolfgang.Extensions.IAsyncEnumerable.csproj
+│       └── IAsyncEnumerableExtensions.cs
+├── tests/                              # Test projects
+│   └── Wolfgang.Extensions.IAsyncEnumerable.Tests.Unit/
+├── benchmarks/                         # Performance benchmarks
+│   └── Wolfgang.Extensions.IAsyncEnumerable.Benchmarks/
+├── examples/                           # Example usage projects
+├── docs/                               # Documentation
+└── .github/                            # GitHub configuration
 ```
 
 ### Key Configuration Files
 - **`.editorconfig`**: Code style rules (C# file-scoped namespaces, var preferences, analyzer severity)
 - **`.gitignore`**: Comprehensive .NET gitignore (Visual Studio, build artifacts, packages)
-- **`SETUP.md`**: Detailed repository setup instructions (delete after setup)
-- **`CONTRIBUTING.md`**: Empty - populate with contribution guidelines
+- **`CONTRIBUTING.md`**: Contribution guidelines
 - **`CODE_OF_CONDUCT.md`**: Standard Contributor Covenant v2.0
 
 ### GitHub Integration
@@ -105,10 +98,8 @@ The workflow runs on pull requests to `main` branch and includes:
 3. **Artifacts**: Coverage reports and DevSkim results uploaded
 4. **Branch Protection**: Configured to require this workflow to pass before merging
 
-**Security Note**: Workflow includes safeguard `if: github.repository != 'Chris-Wolfgang/repo-template'` to prevent running on the template itself.
-
 ### Branch Protection Configuration
-When using this template, configure these settings in GitHub (detailed in `SETUP.md`):
+The repository has branch protection rules configured:
 - Require status checks to pass before merging
 - Require branches to be up to date
 - Require pull request reviews (including Copilot reviews)
@@ -118,9 +109,8 @@ When using this template, configure these settings in GitHub (detailed in `SETUP
 ## Key Files and Locations
 
 ### Root Directory Files
-- `README.md` - Basic template description (update for your project)
-- `LICENSE` - Mozilla Public License 2.0
-- `SETUP.md` - Template setup instructions (delete after setup)
+- `README.md` - Project description and documentation
+- `LICENSE` - MIT License
 - `.editorconfig` - Code style configuration
 - `.gitignore` - .NET-specific gitignore
 
@@ -131,25 +121,26 @@ When using this template, configure these settings in GitHub (detailed in `SETUP
 - `CODEOWNERS` - Code ownership rules
 - `dependabot.yml` - Dependency update configuration
 
-### Project Directories (Currently Empty in Template)
-- `src/` - Application source code
+### Project Directories
+- `src/Wolfgang.Extensions.IAsyncEnumerable/` - Main library source code
 - `tests/` - Unit and integration tests
 - `benchmarks/` - Performance benchmarks
 - `examples/` - Example usage projects
-- `docs/` - Documentation (contains placeholder `index.html`)
+- `docs/` - Documentation and API reference
 
 ## Agent Guidelines
 
 ### Trust These Instructions
-This information has been validated against the template structure and GitHub workflows. **Only search for additional information if these instructions are incomplete or found to be incorrect.**
+This information has been validated against the project structure and GitHub workflows. **Only search for additional information if these instructions are incomplete or found to be incorrect.**
 
-### When Working with This Template
-1. **Creating New Projects**: Follow the structure outlined in `SETUP.md`
+### When Working with This Project
+1. **Main Library**: The core library is in `src/Wolfgang.Extensions.IAsyncEnumerable/`
 2. **Adding Dependencies**: Use `dotnet add package` commands
 3. **Code Style**: Follow `.editorconfig` rules (file-scoped namespaces, explicit typing)
 4. **Testing**: Ensure test projects follow `*Test*.csproj` naming convention
 5. **Coverage**: Aim for >80% code coverage to pass CI
 6. **Security**: Review DevSkim findings and address security concerns
+7. **Multi-targeting**: The library targets .NET Framework 4.6.2, .NET Standard 2.0, .NET 8.0, and .NET 10.0
 
 ### Validation Steps
 Before submitting changes:
@@ -159,4 +150,4 @@ Before submitting changes:
 4. Run DevSkim security scan
 5. Ensure all GitHub Actions checks pass
 
-This template provides a solid foundation for .NET projects with enterprise-grade CI/CD, security scanning, and development best practices built-in.
+This project provides extension methods for IAsyncEnumerable with enterprise-grade CI/CD, security scanning, and development best practices built-in.
