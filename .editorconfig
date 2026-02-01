@@ -97,6 +97,83 @@ dotnet_diagnostic.RCS1197.severity = suggestion   # Optimize StringBuilder.Appen
 dotnet_diagnostic.RCS1214.severity = suggestion   # Unnecessary interpolated string
 dotnet_diagnostic.RCS1227.severity = suggestion   # Validate arguments correctly
 
+# Meziantou Analyzer Rules
+dotnet_diagnostic.MA0001.severity = suggestion   # StringComparison missing
+dotnet_diagnostic.MA0002.severity = suggestion   # IEqualityComparer<string> missing
+dotnet_diagnostic.MA0003.severity = warning      # Add parameter name to improve readability
+dotnet_diagnostic.MA0004.severity = suggestion   # Use Task.ConfigureAwait(false)
+dotnet_diagnostic.MA0006.severity = warning      # Use String.Equals instead of equality operator
+dotnet_diagnostic.MA0007.severity = suggestion   # Add comma after the last value
+dotnet_diagnostic.MA0011.severity = suggestion   # IFormatProvider is missing
+dotnet_diagnostic.MA0016.severity = suggestion   # Prefer returning collection abstraction instead of implementation
+dotnet_diagnostic.MA0025.severity = warning      # Implement the functionality instead of throwing NotImplementedException
+dotnet_diagnostic.MA0026.severity = suggestion   # Fix TODO comment
+dotnet_diagnostic.MA0028.severity = warning      # Optimize StringBuilder usage
+dotnet_diagnostic.MA0029.severity = warning      # Combine LINQ methods
+dotnet_diagnostic.MA0036.severity = suggestion   # Make class static
+dotnet_diagnostic.MA0038.severity = suggestion   # Make method static
+dotnet_diagnostic.MA0040.severity = warning      # Flow the cancellation token
+dotnet_diagnostic.MA0048.severity = warning      # File name must match type name
+dotnet_diagnostic.MA0051.severity = warning      # Method is too long
+dotnet_diagnostic.MA0053.severity = suggestion   # Make class sealed
+dotnet_diagnostic.MA0056.severity = suggestion   # Do not call overridable members in constructor
+dotnet_diagnostic.MA0073.severity = suggestion   # Avoid comparison with bool constant
+dotnet_diagnostic.MA0076.severity = suggestion   # Do not use implicit culture-sensitive ToString in interpolated strings
+
+# SonarAnalyzer Rules
+dotnet_diagnostic.S1118.severity = suggestion    # Utility classes should not have public constructors
+dotnet_diagnostic.S1135.severity = suggestion    # Track uses of "TODO" tags
+dotnet_diagnostic.S1199.severity = warning       # Nested code blocks should not be used
+dotnet_diagnostic.S2223.severity = warning       # Non-constant static fields should not be visible
+dotnet_diagnostic.S2259.severity = warning       # Null pointers should not be dereferenced
+dotnet_diagnostic.S2583.severity = warning       # Conditionally executed code should be reachable
+dotnet_diagnostic.S2589.severity = warning       # Boolean expressions should not be gratuitous
+dotnet_diagnostic.S2696.severity = suggestion    # Instance members should not write to "static" fields
+dotnet_diagnostic.S2933.severity = warning       # Fields that are only assigned in the constructor should be "readonly"
+dotnet_diagnostic.S2934.severity = warning       # Property assignments should not be made for "readonly" fields
+dotnet_diagnostic.S3215.severity = suggestion    # "interface" instances should not be cast to concrete types
+dotnet_diagnostic.S3216.severity = warning       # "ConfigureAwait(false)" should be used
+dotnet_diagnostic.S3218.severity = suggestion    # Inner class members should not shadow outer class "static" or type members
+dotnet_diagnostic.S3236.severity = warning       # Caller information arguments should not be provided explicitly
+dotnet_diagnostic.S3242.severity = suggestion    # Method parameters should be declared with base types
+dotnet_diagnostic.S3247.severity = warning       # Duplicate casts should not be made
+dotnet_diagnostic.S3253.severity = suggestion    # Constructor and destructor declarations should not be redundant
+dotnet_diagnostic.S3257.severity = warning       # Declarations and initializations should be as concise as possible
+dotnet_diagnostic.S3358.severity = warning       # Ternary operators should not be nested
+dotnet_diagnostic.S3400.severity = warning       # Methods should not return constants
+dotnet_diagnostic.S3441.severity = warning       # Redundant property names should be omitted in anonymous classes
+dotnet_diagnostic.S3442.severity = warning       # "abstract" classes should not have "public" constructors
+dotnet_diagnostic.S3443.severity = warning       # Type should not be examined on "System.Type" instances
+dotnet_diagnostic.S3449.severity = suggestion    # Right operands of shift operators should be integers
+dotnet_diagnostic.S3451.severity = warning       # Classes should not have only "private" constructors
+dotnet_diagnostic.S3604.severity = warning       # Member initializer values should not be redundant
+dotnet_diagnostic.S3776.severity = suggestion    # Cognitive Complexity of methods should not be too high
+dotnet_diagnostic.S3881.severity = warning       # "IDisposable" should be implemented correctly
+dotnet_diagnostic.S3897.severity = suggestion    # Classes that provide "Equals(<T>)" should implement "IEquatable<T>"
+dotnet_diagnostic.S3898.severity = warning       # Value types should implement "IEquatable<T>"
+dotnet_diagnostic.S3902.severity = warning       # "Assembly.GetExecutingAssembly" should not be called
+dotnet_diagnostic.S3903.severity = warning       # Types should be defined in named namespaces
+dotnet_diagnostic.S3904.severity = warning       # Assemblies should have version information
+dotnet_diagnostic.S3925.severity = warning       # "ISerializable" should be implemented correctly
+dotnet_diagnostic.S3926.severity = warning       # Deserialization methods should be provided for "OptionalField" members
+dotnet_diagnostic.S3927.severity = warning       # Serialization event handlers should be implemented correctly
+dotnet_diagnostic.S4049.severity = suggestion    # Properties should be preferred
+dotnet_diagnostic.S4056.severity = warning       # Overloads with a "CultureInfo" or an "IFormatProvider" parameter should be used
+dotnet_diagnostic.S4136.severity = warning       # Method overloads should be grouped together
+
+# SecurityCodeScan Rules
+dotnet_diagnostic.SCS0005.severity = warning     # Weak random number generator
+dotnet_diagnostic.SCS0006.severity = warning     # Weak hash algorithm
+dotnet_diagnostic.SCS0015.severity = warning     # Hardcoded password
+dotnet_diagnostic.SCS0016.severity = warning     # Controller method is vulnerable to CSRF
+dotnet_diagnostic.SCS0017.severity = warning     # Request validation disabled
+dotnet_diagnostic.SCS0018.severity = warning     # Path traversal
+dotnet_diagnostic.SCS0019.severity = warning     # OutputCache conflict
+dotnet_diagnostic.SCS0020.severity = warning     # SQL injection via EF raw query
+dotnet_diagnostic.SCS0026.severity = warning     # SQL injection via EF FromSqlRaw
+dotnet_diagnostic.SCS0029.severity = warning     # Cross-Site Scripting (XSS)
+dotnet_diagnostic.SCS0031.severity = warning     # SQL injection via EF ExecuteSqlRaw
+
 # Performance-critical rules for library code
 dotnet_diagnostic.CA1062.severity = warning       # Validate arguments of public methods
 dotnet_diagnostic.CA1508.severity = warning       # Avoid dead conditional code
@@ -299,6 +376,23 @@ dotnet_diagnostic.VSTHRD102.severity = none       # Allow synchronous implementa
 dotnet_diagnostic.VSTHRD104.severity = none       # Allow missing async options in tests
 dotnet_diagnostic.VSTHRD107.severity = none       # Allow Task in using without await in tests
 dotnet_diagnostic.VSTHRD114.severity = none       # Allow returning null from Task methods in tests
+
+# Meziantou - Relax in tests
+dotnet_diagnostic.MA0004.severity = none         # ConfigureAwait not needed in tests
+dotnet_diagnostic.MA0011.severity = none         # IFormatProvider not critical in tests
+dotnet_diagnostic.MA0026.severity = none         # TODO comments OK in tests
+dotnet_diagnostic.MA0048.severity = none         # File name matching not critical in tests
+dotnet_diagnostic.MA0051.severity = none         # Method length OK in tests
+
+# SonarAnalyzer - Relax in tests
+dotnet_diagnostic.S1118.severity = none          # Utility class constructors OK in tests
+dotnet_diagnostic.S1135.severity = none          # TODO tags OK in tests
+dotnet_diagnostic.S3216.severity = none          # ConfigureAwait not needed in tests
+dotnet_diagnostic.S3776.severity = none          # Complexity OK in tests
+dotnet_diagnostic.S4049.severity = none          # Properties vs methods flexibility in tests
+
+# SecurityCodeScan - Relax in tests (but keep serious ones)
+dotnet_diagnostic.SCS0005.severity = suggestion  # Weak random OK for test data
 
 # No documentation required for tests
 dotnet_diagnostic.SA1600.severity = none
