@@ -38,6 +38,78 @@ charset = utf-8-bom
 # C# files
 [*.cs]
 
+# .NET Code Analysis Rules
+# Enable .NET analyzers with conservative defaults
+dotnet_analyzer_diagnostic.severity = suggestion
+
+# IDE (Code Style) Rules
+dotnet_diagnostic.IDE0005.severity = suggestion   # Remove unnecessary usings
+
+# CA (Code Analysis) Rules - Set defaults
+dotnet_diagnostic.CA1000.severity = warning
+dotnet_diagnostic.CA1001.severity = warning
+dotnet_diagnostic.CA1010.severity = warning
+dotnet_diagnostic.CA1016.severity = warning
+dotnet_diagnostic.CA1063.severity = warning
+
+# AsyncFixer Rules (all 5 rules explicitly configured)
+dotnet_diagnostic.AsyncFixer01.severity = error   # Unnecessary async/await
+dotnet_diagnostic.AsyncFixer02.severity = error   # Blocking synchronous operations inside async methods
+dotnet_diagnostic.AsyncFixer03.severity = warning # Fire-and-forget async void
+dotnet_diagnostic.AsyncFixer04.severity = error   # Fire-and-forget async call inside using block
+dotnet_diagnostic.AsyncFixer05.severity = suggestion # Downcasting from Task<T> to Task
+
+# VSTHRD (Visual Studio Threading) Rules - Common rules explicitly configured
+dotnet_diagnostic.VSTHRD100.severity = warning    # Avoid async void methods
+dotnet_diagnostic.VSTHRD101.severity = warning    # Avoid unsupported async delegates
+dotnet_diagnostic.VSTHRD102.severity = warning    # Implement internal logic asynchronously
+dotnet_diagnostic.VSTHRD103.severity = warning    # Call async methods when in async method
+dotnet_diagnostic.VSTHRD104.severity = warning    # Offer async option
+dotnet_diagnostic.VSTHRD105.severity = warning    # Avoid method overloads that assume TaskScheduler.Current
+dotnet_diagnostic.VSTHRD106.severity = warning    # Use InvokeAsync to raise async events
+dotnet_diagnostic.VSTHRD107.severity = warning    # Await Task within using expression
+dotnet_diagnostic.VSTHRD108.severity = warning    # Assert thread affinity unconditionally
+dotnet_diagnostic.VSTHRD109.severity = warning    # Switch instead of assert in async methods
+dotnet_diagnostic.VSTHRD110.severity = warning    # Observe result of async calls
+dotnet_diagnostic.VSTHRD111.severity = none       # ConfigureAwait - not needed in library code targeting modern .NET
+dotnet_diagnostic.VSTHRD112.severity = warning    # Implement System.IAsyncDisposable
+dotnet_diagnostic.VSTHRD114.severity = warning    # Avoid returning null from a Task-returning method
+dotnet_diagnostic.VSTHRD200.severity = suggestion # Use Async naming convention
+
+# Roslynator Rules - Common rules explicitly configured
+dotnet_diagnostic.RCS1001.severity = suggestion   # Add braces
+dotnet_diagnostic.RCS1036.severity = suggestion   # Remove unnecessary blank line
+dotnet_diagnostic.RCS1037.severity = suggestion   # Remove trailing white-space
+dotnet_diagnostic.RCS1138.severity = warning      # Add summary to documentation comment
+dotnet_diagnostic.RCS1140.severity = warning      # Add exception to documentation comment
+dotnet_diagnostic.RCS1141.severity = suggestion   # Add parameter to documentation comment
+dotnet_diagnostic.RCS1163.severity = suggestion   # Unused parameter
+dotnet_diagnostic.RCS1175.severity = suggestion   # Unused this parameter
+dotnet_diagnostic.RCS1180.severity = suggestion   # Inline lazy initialization
+dotnet_diagnostic.RCS1181.severity = suggestion   # Convert comment to documentation comment
+dotnet_diagnostic.RCS1186.severity = suggestion   # Use Regex instance instead of static method
+dotnet_diagnostic.RCS1197.severity = suggestion   # Optimize StringBuilder.Append/AppendLine call
+dotnet_diagnostic.RCS1214.severity = suggestion   # Unnecessary interpolated string
+dotnet_diagnostic.RCS1227.severity = suggestion   # Validate arguments correctly
+
+# Performance-critical rules for library code
+dotnet_diagnostic.CA1062.severity = warning       # Validate arguments of public methods
+dotnet_diagnostic.CA1508.severity = warning       # Avoid dead conditional code
+dotnet_diagnostic.CA1510.severity = none          # Disabled: recommends ArgumentNullException.ThrowIfNull (.NET 6.0+ only)
+dotnet_diagnostic.CA1810.severity = warning       # Initialize static fields inline
+dotnet_diagnostic.CA1822.severity = suggestion    # Mark members as static
+dotnet_diagnostic.CA1825.severity = warning       # Avoid zero-length array allocations
+dotnet_diagnostic.CA1826.severity = warning       # Use property instead of Linq Enumerable method
+dotnet_diagnostic.CA1827.severity = warning       # Do not use Count/LongCount when Any can be used
+dotnet_diagnostic.CA1828.severity = warning       # Do not use CountAsync/LongCountAsync when AnyAsync can be used
+dotnet_diagnostic.CA1829.severity = warning       # Use Length/Count property instead of Enumerable.Count method
+dotnet_diagnostic.CA1851.severity = warning       # Possible multiple enumerations of IEnumerable collection
+
+# Async/IAsyncEnumerable specific rules (CRITICAL for this library)
+dotnet_diagnostic.CA2007.severity = none          # ConfigureAwait - not needed in library code targeting modern .NET
+dotnet_diagnostic.CA2012.severity = error         # Use ValueTasks correctly
+dotnet_diagnostic.CA2016.severity = warning       # Forward CancellationToken parameter
+
 # New line preferences
 csharp_new_line_before_open_brace = all
 csharp_new_line_before_else = true
@@ -209,6 +281,17 @@ dotnet_diagnostic.SA1300.severity = none
 dotnet_diagnostic.IDE1006.severity = none
 dotnet_diagnostic.CA1707.severity = none
 
+# Relax async/await analyzer rules for tests
+dotnet_diagnostic.AsyncFixer01.severity = none    # Allow unnecessary async/await in tests
+dotnet_diagnostic.AsyncFixer02.severity = none    # Allow synchronous blocking in tests
+dotnet_diagnostic.AsyncFixer05.severity = none    # Allow downcasting in tests
+dotnet_diagnostic.IDE0058.severity = none          # Allow unused expression values in tests
+dotnet_diagnostic.VSTHRD103.severity = none       # Allow calling sync methods when async alternatives exist in tests
+dotnet_diagnostic.VSTHRD102.severity = none       # Allow synchronous implementation in tests
+dotnet_diagnostic.VSTHRD104.severity = none       # Allow missing async options in tests
+dotnet_diagnostic.VSTHRD107.severity = none       # Allow Task in using without await in tests
+dotnet_diagnostic.VSTHRD114.severity = none       # Allow returning null from Task methods in tests
+
 # No documentation required for tests
 dotnet_diagnostic.SA1600.severity = none
 dotnet_diagnostic.SA1601.severity = none
@@ -220,6 +303,9 @@ dotnet_diagnostic.SA1602.severity = none
 dotnet_diagnostic.SA1300.severity = none
 dotnet_diagnostic.IDE1006.severity = none
 dotnet_diagnostic.CA1707.severity = none
+
+# Relax async/await analyzer rules for benchmarks
+dotnet_diagnostic.AsyncFixer01.severity = none    # Allow unnecessary async/await in benchmarks
 
 # No documentation required for benchmarks
 dotnet_diagnostic.SA1600.severity = none
