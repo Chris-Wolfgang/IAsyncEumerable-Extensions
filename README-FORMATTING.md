@@ -6,7 +6,7 @@ This repository uses `dotnet format` to enforce consistent C# code style.
 
 ### Before Committing
 
-Run the formatting script on Windows:
+Run the formatting script with PowerShell Core (`pwsh`) on any supported platform:
 
 ```powershell
 .\format.ps1
