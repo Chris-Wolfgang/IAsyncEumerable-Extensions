@@ -115,6 +115,9 @@ dotnet_diagnostic.CA2007.severity = none          # ConfigureAwait - not needed 
 dotnet_diagnostic.CA2012.severity = error         # Use ValueTasks correctly
 dotnet_diagnostic.CA2016.severity = warning       # Forward CancellationToken parameter
 
+# Banned API Analyzer (RS0030) - Enforce async-first best practices
+dotnet_diagnostic.RS0030.severity = error         # Using banned API - treat as error
+
 # New line preferences
 csharp_new_line_before_open_brace = all
 csharp_new_line_before_else = true
@@ -300,6 +303,9 @@ dotnet_diagnostic.VSTHRD104.severity = none       # Allow missing async options 
 dotnet_diagnostic.VSTHRD107.severity = none       # Allow Task in using without await in tests
 dotnet_diagnostic.VSTHRD114.severity = none       # Allow returning null from Task methods in tests
 
+# Banned API Analyzer - Just warn in tests (allow for testing purposes)
+dotnet_diagnostic.RS0030.severity = warning       # Using banned API - warn instead of error in tests
+
 # No documentation required for tests
 dotnet_diagnostic.SA1600.severity = none
 dotnet_diagnostic.SA1601.severity = none
@@ -314,6 +320,9 @@ dotnet_diagnostic.CA1707.severity = none
 
 # Relax async/await analyzer rules for benchmarks
 dotnet_diagnostic.AsyncFixer01.severity = none    # Allow unnecessary async/await in benchmarks
+
+# Banned API Analyzer - Just warn in benchmarks (allow for benchmarking purposes)
+dotnet_diagnostic.RS0030.severity = warning       # Using banned API - warn instead of error in benchmarks
 
 # No documentation required for benchmarks
 dotnet_diagnostic.SA1600.severity = none
@@ -331,3 +340,6 @@ dotnet_diagnostic.CA1707.severity = none
 dotnet_diagnostic.SA1600.severity = suggestion
 dotnet_diagnostic.SA1601.severity = suggestion
 dotnet_diagnostic.SA1602.severity = suggestion
+
+# Banned API Analyzer - Allow in examples for demonstration purposes
+dotnet_diagnostic.RS0030.severity = none          # Allow banned APIs in examples for demonstration
