@@ -47,6 +47,19 @@ jobs:
             9.0.x
             10.0.x
 
+      - name: Check Code Formatting
+        run: |
+          # Find solution file
+          solution=$(find . -maxdepth 2 -name "*.sln" -o -name "*.slnx" | head -n 1)
+          
+          if [ -n "$solution" ]; then
+            echo "Checking formatting for: $solution"
+            dotnet format "$solution" --verify-no-changes --verbosity diagnostic
+          else
+            echo "No solution file found, checking entire workspace"
+            dotnet format --verify-no-changes --verbosity diagnostic
+          fi
+
       - name: Restore and build (exclude .NET Framework 4.x projects)
         run: |
           echo "Finding all projects in solution..."
