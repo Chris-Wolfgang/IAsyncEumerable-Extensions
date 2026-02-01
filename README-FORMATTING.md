@@ -55,7 +55,7 @@ Most IDEs automatically read `.editorconfig`:
 ## Formatting Rules
 
 Key style rules:
-- **Indentation**: 4 spaces for C#, 2 for XML/JSON
+- **Indentation**: 4 spaces for C# (with `switch` case contents not additionally indented when inside a block, per `.editorconfig`), 2 for XML/JSON
 - **Braces**: Opening brace on new line
 - **Line endings**: LF (Unix style)
 - **Trailing whitespace**: Removed

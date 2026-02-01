@@ -37,8 +37,6 @@ charset = utf-8-bom
 
 # C# files
 [*.cs]
-indent_size = 4
-end_of_line = lf
 
 # New line preferences
 csharp_new_line_before_open_brace = all
@@ -101,7 +99,7 @@ csharp_style_namespace_declarations = file_scoped:suggestion
 # var preferences
 csharp_style_var_when_type_is_apparent = true:suggestion
 csharp_style_var_for_built_in_types = true:suggestion
-csharp_style_var_elsewhere = true:suggestion
+csharp_style_var_elsewhere = false:suggestion
 
 # Expression preferences
 dotnet_style_prefer_auto_properties = true:suggestion
@@ -122,8 +120,12 @@ dotnet_style_coalesce_expression = true:suggestion
 dotnet_style_null_propagation = true:suggestion
 
 # Wrapping preferences
+# Preserve manual line breaks and allow flexible parameter formatting
 csharp_preserve_single_line_statements = false
 csharp_preserve_single_line_blocks = true
+
+# Line length guidance (not enforced by dotnet format, but used by some IDEs)
+csharp_max_line_length = 120
 
 # Naming conventions
 dotnet_naming_rule.interface_should_be_begins_with_i.severity = suggestion
