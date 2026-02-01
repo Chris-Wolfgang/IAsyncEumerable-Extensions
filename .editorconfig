@@ -120,8 +120,12 @@ dotnet_style_coalesce_expression = true:suggestion
 dotnet_style_null_propagation = true:suggestion
 
 # Wrapping preferences
+# Preserve manual line breaks and allow flexible parameter formatting
 csharp_preserve_single_line_statements = false
 csharp_preserve_single_line_blocks = true
+
+# Line length guidance (not enforced by dotnet format, but used by some IDEs)
+csharp_max_line_length = 120
 
 # Naming conventions
 dotnet_naming_rule.interface_should_be_begins_with_i.severity = suggestion
