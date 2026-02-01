@@ -167,3 +167,46 @@ dotnet_diagnostic.SA1639.severity = none
 dotnet_diagnostic.SA1640.severity = none
 dotnet_diagnostic.SA1641.severity = none
 file_header_template = unset
+
+# Disable overly strict formatting rules globally
+dotnet_diagnostic.SA1505.severity = none
+dotnet_diagnostic.SA1508.severity = none
+dotnet_diagnostic.SA1110.severity = none
+dotnet_diagnostic.SA1009.severity = none
+dotnet_diagnostic.SA1111.severity = none
+dotnet_diagnostic.SA1500.severity = none
+dotnet_diagnostic.SA1101.severity = none
+
+# Documentation - warning by default
+dotnet_diagnostic.SA1600.severity = warning
+dotnet_diagnostic.SA1601.severity = warning
+dotnet_diagnostic.SA1602.severity = warning
+
+# Naming - error by default
+dotnet_diagnostic.SA1300.severity = error
+
+# Source code - strict rules
+[src/**/*.cs]
+dotnet_diagnostic.SA1300.severity = error
+dotnet_diagnostic.SA1600.severity = warning
+
+# Test projects - relaxed naming, no doc requirements
+[tests/**/*.cs]
+dotnet_diagnostic.SA1300.severity = none
+dotnet_diagnostic.SA1600.severity = none
+dotnet_diagnostic.SA1601.severity = none
+dotnet_diagnostic.SA1602.severity = none
+
+# Benchmark projects - relaxed naming, no doc requirements
+[benchmarks/**/*.cs]
+dotnet_diagnostic.SA1300.severity = none
+dotnet_diagnostic.SA1600.severity = none
+dotnet_diagnostic.SA1601.severity = none
+dotnet_diagnostic.SA1602.severity = none
+
+# Example projects - relaxed naming, docs encouraged
+[examples/**/*.cs]
+dotnet_diagnostic.SA1300.severity = none
+dotnet_diagnostic.SA1600.severity = suggestion
+dotnet_diagnostic.SA1601.severity = suggestion
+dotnet_diagnostic.SA1602.severity = suggestion
