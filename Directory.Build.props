@@ -13,6 +13,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Include BannedSymbols.txt as AdditionalFiles for BannedApiAnalyzers -->
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)BannedSymbols.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <!-- Roslynator - Code quality and refactoring -->
     <PackageReference Include="Roslynator.Analyzers" Version="4.12.0">
       <PrivateAssets>all</PrivateAssets>
@@ -32,7 +37,7 @@
     </PackageReference>
     
     <!-- BannedApiAnalyzers - Prevent usage of specific APIs -->
-    <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="3.11.0">
+    <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="4.14.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
