@@ -96,6 +96,7 @@ dotnet_style_require_accessibility_modifiers = for_non_interface_members:suggest
 dotnet_style_readonly_field = true:suggestion
 csharp_prefer_braces = true:suggestion
 csharp_prefer_simple_using_statement = true:suggestion
+csharp_style_namespace_declarations = file_scoped:suggestion
 
 # Expression preferences
 dotnet_style_prefer_auto_properties = true:suggestion
