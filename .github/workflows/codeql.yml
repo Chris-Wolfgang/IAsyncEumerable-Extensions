@@ -41,8 +41,8 @@ jobs:
       run: |
         echo "Building solution for CodeQL analysis..."
         
-        # Find solution file (.sln or .slnx)
-        solution=$(find . -maxdepth 2 -name "*.sln" -o -name "*.slnx" | head -n 1)
+        # Find solution file (.sln or .slnx) with correct syntax
+        solution=$(find . -maxdepth 2 \( -name "*.sln" -o -name "*.slnx" \) | head -n 1)
         
         if [ -n "$solution" ]; then
           echo "Found solution: $solution"
