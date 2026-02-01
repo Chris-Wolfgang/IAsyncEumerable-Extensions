@@ -1,12 +1,25 @@
+###############################################################################################
 # BannedSymbols.txt - Async-First Enforcement for IAsyncEnumerable Extension Library
+#
 # Format: <API Documentation ID>; <Reason/Alternative>
 # T: = Type, M: = Method, P: = Property, F: = Field
-# Task.Wait() - All overloads - Absolutely NOT allowed in async code
+#
+# References:
+# - Documentation Comment ID Format: https://learn.microsoft.com/dotnet/csharp/language-reference/xmldoc/
+# - Microsoft.CodeAnalysis.BannedApiAnalyzers: https://github.com/dotnet/roslyn-analyzers
+###############################################################################################
+
+###############################################################################################
+# BLOCKING TASK OPERATIONS - Absolutely NOT allowed in async code
+###############################################################################################
+
+# Task.Wait() - All overloads
 M:System.Threading.Tasks.Task.Wait(); Use 'await' instead - this blocks the calling thread!
 M:System.Threading.Tasks.Task.Wait(System.Int32); Use 'await' with CancellationToken timeout instead
 M:System.Threading.Tasks.Task.Wait(System.TimeSpan); Use 'await' with CancellationToken timeout instead
 M:System.Threading.Tasks.Task.Wait(System.Int32,System.Threading.CancellationToken); Use 'await' instead
 M:System.Threading.Tasks.Task.Wait(System.Threading.CancellationToken); Use 'await' instead
+
 # Task.WaitAll/WaitAny - Use async alternatives
 M:System.Threading.Tasks.Task.WaitAll(System.Threading.Tasks.Task[]); Use 'await Task.WhenAll()' instead
 M:System.Threading.Tasks.Task.WaitAll(System.Threading.Tasks.Task[],System.Int32); Use 'await Task.WhenAll()' with CancellationToken instead
@@ -18,19 +31,34 @@ M:System.Threading.Tasks.Task.WaitAny(System.Threading.Tasks.Task[],System.Int32
 M:System.Threading.Tasks.Task.WaitAny(System.Threading.Tasks.Task[],System.TimeSpan); Use 'await Task.WhenAny()' with CancellationToken instead
 M:System.Threading.Tasks.Task.WaitAny(System.Threading.Tasks.Task[],System.Int32,System.Threading.CancellationToken); Use 'await Task.WhenAny()' instead
 M:System.Threading.Tasks.Task.WaitAny(System.Threading.Tasks.Task[],System.Threading.CancellationToken); Use 'await Task.WhenAny()' instead
+
 # Task<T>.Result - Blocking property access
 P:System.Threading.Tasks.Task`1.Result; Blocking! Use 'await' instead to get the result asynchronously
+
 # GetAwaiter().GetResult() - Also blocking
 M:System.Runtime.CompilerServices.TaskAwaiter.GetResult(); Blocking! Use 'await' instead
 M:System.Runtime.CompilerServices.TaskAwaiter`1.GetResult(); Blocking! Use 'await' instead
-# Thread.Sleep - Use Task.Delay for async delays
+
+###############################################################################################
+# THREAD.SLEEP - Use Task.Delay for async delays
+###############################################################################################
+
 M:System.Threading.Thread.Sleep(System.Int32); Use 'await Task.Delay()' instead for async-friendly delays
 M:System.Threading.Thread.Sleep(System.TimeSpan); Use 'await Task.Delay()' instead for async-friendly delays
-# Obsolete/Deprecated Threading APIs
+
+###############################################################################################
+# OBSOLETE/DEPRECATED THREADING APIs
+###############################################################################################
+
 M:System.Threading.Thread.Suspend(); Deprecated and dangerous
 M:System.Threading.Thread.Resume(); Deprecated and dangerous
 T:System.ComponentModel.BackgroundWorker; Use async/await patterns instead of BackgroundWorker
-# Synchronous File I/O - Use async versions
+
+###############################################################################################
+# SYNCHRONOUS FILE I/O - Use async versions
+###############################################################################################
+
+# File static methods
 M:System.IO.File.ReadAllText(System.String); Use 'File.ReadAllTextAsync()' instead
 M:System.IO.File.ReadAllText(System.String,System.Text.Encoding); Use 'File.ReadAllTextAsync()' instead
 M:System.IO.File.ReadAllLines(System.String); Use 'File.ReadAllLinesAsync()' instead
@@ -47,18 +75,25 @@ M:System.IO.File.AppendAllText(System.String,System.String); Use 'File.AppendAll
 M:System.IO.File.AppendAllText(System.String,System.String,System.Text.Encoding); Use 'File.AppendAllTextAsync()' instead
 M:System.IO.File.AppendAllLines(System.String,System.Collections.Generic.IEnumerable{System.String}); Use 'File.AppendAllLinesAsync()' instead
 M:System.IO.File.AppendAllLines(System.String,System.Collections.Generic.IEnumerable{System.String},System.Text.Encoding); Use 'File.AppendAllLinesAsync()' instead
-# Synchronous Stream operations - Use async versions for file I/O
-M:System.IO.FileStream.Read(System.Byte[],System.Int32,System.Int32); Use 'ReadAsync()' instead
-M:System.IO.FileStream.Write(System.Byte[],System.Int32,System.Int32); Use 'WriteAsync()' instead
+
+###############################################################################################
+# SYNCHRONOUS STREAM OPERATIONS - Use async versions
+###############################################################################################
+
+# Stream
+M:System.IO.Stream.Read(System.Byte[],System.Int32,System.Int32); Use 'ReadAsync()' instead
+M:System.IO.Stream.Write(System.Byte[],System.Int32,System.Int32); Use 'WriteAsync()' instead
 M:System.IO.Stream.CopyTo(System.IO.Stream); Use 'CopyToAsync()' instead
 M:System.IO.Stream.CopyTo(System.IO.Stream,System.Int32); Use 'CopyToAsync()' instead
 M:System.IO.Stream.Flush(); Use 'FlushAsync()' instead
+
 # StreamReader
 M:System.IO.StreamReader.ReadToEnd(); Use 'ReadToEndAsync()' instead
 M:System.IO.StreamReader.ReadLine(); Use 'ReadLineAsync()' instead
 M:System.IO.StreamReader.Read(); Use 'ReadAsync()' instead
 M:System.IO.StreamReader.Read(System.Char[],System.Int32,System.Int32); Use 'ReadAsync()' instead
 M:System.IO.StreamReader.ReadBlock(System.Char[],System.Int32,System.Int32); Use 'ReadBlockAsync()' instead
+
 # StreamWriter
 M:System.IO.StreamWriter.Write(System.String); Use 'WriteAsync()' instead
 M:System.IO.StreamWriter.Write(System.Char); Use 'WriteAsync()' instead
@@ -67,7 +102,27 @@ M:System.IO.StreamWriter.Write(System.Char[],System.Int32,System.Int32); Use 'Wr
 M:System.IO.StreamWriter.WriteLine(); Use 'WriteLineAsync()' instead
 M:System.IO.StreamWriter.WriteLine(System.String); Use 'WriteLineAsync()' instead
 M:System.IO.StreamWriter.Flush(); Use 'FlushAsync()' instead
-# Obsolete Network APIs - Use HttpClient
+
+# TextReader
+M:System.IO.TextReader.ReadToEnd(); Use 'ReadToEndAsync()' instead
+M:System.IO.TextReader.ReadLine(); Use 'ReadLineAsync()' instead
+M:System.IO.TextReader.Read(); Use 'ReadAsync()' instead
+M:System.IO.TextReader.Read(System.Char[],System.Int32,System.Int32); Use 'ReadAsync()' instead
+M:System.IO.TextReader.ReadBlock(System.Char[],System.Int32,System.Int32); Use 'ReadBlockAsync()' instead
+
+# TextWriter
+M:System.IO.TextWriter.Write(System.String); Use 'WriteAsync()' instead
+M:System.IO.TextWriter.Write(System.Char); Use 'WriteAsync()' instead
+M:System.IO.TextWriter.Write(System.Char[]); Use 'WriteAsync()' instead
+M:System.IO.TextWriter.Write(System.Char[],System.Int32,System.Int32); Use 'WriteAsync()' instead
+M:System.IO.TextWriter.WriteLine(); Use 'WriteLineAsync()' instead
+M:System.IO.TextWriter.WriteLine(System.String); Use 'WriteLineAsync()' instead
+M:System.IO.TextWriter.Flush(); Use 'FlushAsync()' instead
+
+###############################################################################################
+# OBSOLETE NETWORK APIs - Use HttpClient
+###############################################################################################
+
 T:System.Net.WebClient; Obsolete - use HttpClient instead
 T:System.Net.WebRequest; Obsolete - use HttpClient instead
 T:System.Net.HttpWebRequest; Obsolete - use HttpClient instead
@@ -75,19 +130,40 @@ T:System.Net.HttpWebResponse; Obsolete - use HttpClient instead
 M:System.Net.WebClient.DownloadString(System.String); Use 'HttpClient.GetStringAsync()' instead
 M:System.Net.WebClient.DownloadData(System.String); Use 'HttpClient.GetByteArrayAsync()' instead
 M:System.Net.WebClient.UploadString(System.String,System.String); Use 'HttpClient.PostAsync()' instead
-# Obsolete/Insecure Serialization
+
+###############################################################################################
+# OBSOLETE/INSECURE SERIALIZATION
+###############################################################################################
+
 T:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter; Insecure and deprecated - use System.Text.Json.JsonSerializer instead
 T:System.Runtime.Serialization.Formatters.Soap.SoapFormatter; Insecure and deprecated - use System.Text.Json.JsonSerializer instead
-# DateTime Anti-patterns - Prefer DateTimeOffset for timezone safety
+
+###############################################################################################
+# DATETIME ANTI-PATTERNS - Prefer DateTimeOffset for timezone safety
+###############################################################################################
+
 P:System.DateTime.Now; Use 'DateTimeOffset.UtcNow' or 'DateTimeOffset.Now' for timezone-aware operations
-# Synchronous Parallel operations - Use async alternatives
-M:System.Threading.Tasks.Parallel.For(System.Int32,System.Int32,System.Action{System.Int32}); Synchronous - prefer async concurrency patterns (e.g., 'Task.WhenAll()', dataflow) or 'Parallel.ForEachAsync()' on modern .NET versions
-M:System.Threading.Tasks.Parallel.For(System.Int32,System.Int32,System.Threading.Tasks.ParallelOptions,System.Action{System.Int32}); Synchronous - prefer async concurrency patterns (e.g., 'Task.WhenAll()', dataflow) or 'Parallel.ForEachAsync()' on modern .NET versions
-M:System.Threading.Tasks.Parallel.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0}); Synchronous - prefer async concurrency patterns (e.g., 'Task.WhenAll()', dataflow) or 'Parallel.ForEachAsync()' on modern .NET versions
-M:System.Threading.Tasks.Parallel.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Threading.Tasks.ParallelOptions,System.Action{``0}); Synchronous - prefer async concurrency patterns (e.g., 'Task.WhenAll()', dataflow) or 'Parallel.ForEachAsync()' on modern .NET versions
+T:System.DateTime; Consider using 'DateTimeOffset' for timezone-safe date/time operations (especially in libraries)
+
+###############################################################################################
+# SYNCHRONOUS PARALLEL OPERATIONS - Use async alternatives
+###############################################################################################
+
+M:System.Threading.Tasks.Parallel.For(System.Int32,System.Int32,System.Action{System.Int32}); Synchronous - use async alternatives like 'Parallel.ForEachAsync()' or custom async patterns
+M:System.Threading.Tasks.Parallel.For(System.Int32,System.Int32,System.Threading.Tasks.ParallelOptions,System.Action{System.Int32}); Synchronous - use async alternatives
+M:System.Threading.Tasks.Parallel.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0}); Synchronous - use 'Parallel.ForEachAsync()' instead (.NET 6+)
+M:System.Threading.Tasks.Parallel.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Threading.Tasks.ParallelOptions,System.Action{``0}); Synchronous - use 'Parallel.ForEachAsync()' instead (.NET 6+)
 M:System.Threading.Tasks.Parallel.Invoke(System.Action[]); Synchronous - use 'Task.WhenAll()' with async delegates instead
-# Console Blocking operations - Avoid in async code
+
+###############################################################################################
+# CONSOLE BLOCKING OPERATIONS - Avoid in async code
+###############################################################################################
+
 M:System.Console.ReadLine(); Blocking - avoid in async code paths
 M:System.Console.Read(); Blocking - avoid in async code paths
 M:System.Console.ReadKey(); Blocking - avoid in async code paths
 M:System.Console.ReadKey(System.Boolean); Blocking - avoid in async code paths
+
+###############################################################################################
+# END OF BANNED SYMBOLS
+###############################################################################################
