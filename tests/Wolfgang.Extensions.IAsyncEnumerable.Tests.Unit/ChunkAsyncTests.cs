@@ -132,13 +132,16 @@ public sealed class ChunkAsyncTests
 
         var chunked = source.ChunkAsync(2, tokenSource.Token);
 
-        await using var enumerator = chunked.GetAsyncEnumerator();
+        await using var enumerator = chunked.GetAsyncEnumerator(tokenSource.Token);
 
         Assert.True(await enumerator.MoveNextAsync());
 
         tokenSource.Cancel();
 
-        await Assert.ThrowsAsync<OperationCanceledException>(async () => await enumerator.MoveNextAsync());
+        await Assert.ThrowsAsync<OperationCanceledException>
+        (
+            async () => await enumerator.MoveNextAsync().ConfigureAwait(false)
+        );
     }
 
     [Theory]
@@ -165,7 +168,7 @@ public sealed class ChunkAsyncTests
     {
         foreach (var value in values)
         {
-            await Task.Delay(delay);
+            await Task.Delay(delay).ConfigureAwait(false);
             yield return value;
         }
     }
