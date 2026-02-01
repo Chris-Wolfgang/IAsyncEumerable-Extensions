@@ -40,7 +40,7 @@ charset = utf-8-bom
 
 # .NET Code Analysis Rules
 # Enable .NET analyzers
-dotnet_analyzer_diagnostic.severity = warning
+dotnet_analyzer_diagnostic.severity = suggestion
 
 # IDE (Code Style) Rules
 dotnet_diagnostic.IDE0005.severity = suggestion   # Remove unnecessary usings
@@ -54,7 +54,7 @@ dotnet_diagnostic.CA1063.severity = warning
 
 # AsyncFixer Rules
 dotnet_diagnostic.AsyncFixer01.severity = error   # Unnecessary async/await
-dotnet_diagnostic.AsyncFixer02.severity = error   # Long-running operations inside async
+dotnet_diagnostic.AsyncFixer02.severity = error   # Blocking synchronous operations inside async methods
 dotnet_diagnostic.AsyncFixer03.severity = warning # Fire-and-forget async void
 dotnet_diagnostic.AsyncFixer04.severity = error   # Fire-and-forget async call inside using block
 
@@ -70,8 +70,8 @@ dotnet_diagnostic.VSTHRD200.severity = suggestion # Use Async naming convention
 dotnet_diagnostic.RCS1001.severity = suggestion   # Add braces
 dotnet_diagnostic.RCS1036.severity = suggestion   # Remove unnecessary blank line
 dotnet_diagnostic.RCS1037.severity = suggestion   # Remove trailing white-space
-dotnet_diagnostic.RCS1138.severity = suggestion   # Add summary to documentation comment
-dotnet_diagnostic.RCS1140.severity = suggestion   # Add exception to documentation comment
+dotnet_diagnostic.RCS1138.severity = warning      # Add summary to documentation comment
+dotnet_diagnostic.RCS1140.severity = warning      # Add exception to documentation comment
 dotnet_diagnostic.RCS1163.severity = suggestion   # Unused parameter
 dotnet_diagnostic.RCS1175.severity = suggestion   # Unused this parameter
 dotnet_diagnostic.RCS1227.severity = suggestion   # Validate arguments correctly
@@ -79,7 +79,7 @@ dotnet_diagnostic.RCS1227.severity = suggestion   # Validate arguments correctly
 # Performance-critical rules for library code
 dotnet_diagnostic.CA1062.severity = warning       # Validate arguments of public methods
 dotnet_diagnostic.CA1508.severity = warning       # Avoid dead conditional code
-dotnet_diagnostic.CA1510.severity = suggestion    # Use ArgumentNullException.ThrowIfNull (method available in .NET 6+)
+dotnet_diagnostic.CA1510.severity = none          # Disabled: recommends ArgumentNullException.ThrowIfNull (only in .NET 6+)
 dotnet_diagnostic.CA1810.severity = warning       # Initialize static fields inline
 dotnet_diagnostic.CA1822.severity = suggestion    # Mark members as static
 dotnet_diagnostic.CA1825.severity = warning       # Avoid zero-length array allocations
@@ -261,7 +261,7 @@ dotnet_diagnostic.CA1707.severity = none
 dotnet_diagnostic.AsyncFixer01.severity = none    # Allow unnecessary async/await in tests
 dotnet_diagnostic.AsyncFixer02.severity = none    # Allow synchronous blocking in tests
 dotnet_diagnostic.IDE0058.severity = none          # Allow unused expression values in tests
-dotnet_diagnostic.VSTHRD103.severity = none       # Allow blocking calls in async methods in tests
+dotnet_diagnostic.VSTHRD103.severity = none       # Allow calling sync methods when async alternatives exist in tests
 
 # No documentation required for tests
 dotnet_diagnostic.SA1600.severity = none
