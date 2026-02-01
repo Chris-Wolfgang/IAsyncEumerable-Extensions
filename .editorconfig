@@ -56,7 +56,7 @@ dotnet_diagnostic.CA1063.severity = warning
 dotnet_diagnostic.AsyncFixer01.severity = error   # Unnecessary async/await
 dotnet_diagnostic.AsyncFixer02.severity = error   # Long-running operations inside async
 dotnet_diagnostic.AsyncFixer03.severity = warning # Fire-and-forget async void
-dotnet_diagnostic.AsyncFixer04.severity = error   # Fire-and-forget async call without ConfigureAwait
+dotnet_diagnostic.AsyncFixer04.severity = error   # Fire-and-forget async call inside using block
 
 # VSTHRD (Visual Studio Threading) Rules
 dotnet_diagnostic.VSTHRD100.severity = warning    # Avoid async void methods
@@ -79,7 +79,7 @@ dotnet_diagnostic.RCS1227.severity = suggestion   # Validate arguments correctly
 # Performance-critical rules for library code
 dotnet_diagnostic.CA1062.severity = warning       # Validate arguments of public methods
 dotnet_diagnostic.CA1508.severity = warning       # Avoid dead conditional code
-dotnet_diagnostic.CA1510.severity = suggestion    # Use ArgumentNullException.ThrowIfNull (only available in .NET 6+)
+dotnet_diagnostic.CA1510.severity = suggestion    # Use ArgumentNullException.ThrowIfNull (method available in .NET 6+)
 dotnet_diagnostic.CA1810.severity = warning       # Initialize static fields inline
 dotnet_diagnostic.CA1822.severity = suggestion    # Mark members as static
 dotnet_diagnostic.CA1825.severity = warning       # Avoid zero-length array allocations
