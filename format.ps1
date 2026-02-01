@@ -31,7 +31,8 @@ Write-Host ""
 # Find solution file
 $solutions = Get-ChildItem -Path . -Filter "*.sln*" -File | Select-Object -First 1
 
-if (-not $solutions) {
+if (-not $solutions)
+{
     Write-Host "❌ No solution file found!" -ForegroundColor Red
     exit 1
 }
@@ -40,32 +41,41 @@ $solutionFile = $solutions.FullName
 Write-Host "📁 Found solution: $($solutions.Name)" -ForegroundColor Green
 Write-Host ""
 
-if ($Check) {
+if ($Check)
+{
     Write-Host "🔍 Checking code formatting (read-only mode)..." -ForegroundColor Yellow
     Write-Host ""
     
     dotnet format $solutionFile --verify-no-changes --verbosity diagnostic
     
-    if ($LASTEXITCODE -eq 0) {
+    if ($LASTEXITCODE -eq 0)
+    {
         Write-Host ""
         Write-Host "✅ All files are properly formatted!" -ForegroundColor Green
-    } else {
+    }
+    else
+    {
         Write-Host ""
         Write-Host "❌ Formatting issues detected!" -ForegroundColor Red
         Write-Host "Run '.\format.ps1' (without -Check) to fix them automatically." -ForegroundColor Yellow
         exit 1
     }
-} else {
+}
+else
+{
     Write-Host "✏️  Formatting code..." -ForegroundColor Yellow
     Write-Host ""
     
     dotnet format $solutionFile --verbosity diagnostic
     
-    if ($LASTEXITCODE -eq 0) {
+    if ($LASTEXITCODE -eq 0)
+    {
         Write-Host ""
         Write-Host "✅ Code formatting complete!" -ForegroundColor Green
         Write-Host "Review changes and commit them." -ForegroundColor Cyan
-    } else {
+    }
+    else
+    {
         Write-Host ""
         Write-Host "❌ Formatting failed!" -ForegroundColor Red
         exit 1
