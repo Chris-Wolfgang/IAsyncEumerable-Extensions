@@ -23,56 +23,56 @@ jobs:
         language: [ 'csharp' ]
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
-      with:
-        languages: ${{ matrix.language }}
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: |
-          8.0.x
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
 
-    # Build only the main source projects (exclude .NET Framework 4.x)
-    - name: Build for CodeQL Analysis
-      run: |
-        echo "Building C# projects for CodeQL analysis..."
-        
-        # Find all .csproj files excluding dotnet4 and test projects
-        projects=$(find ./src -type f -name "*.csproj" 2>/dev/null | grep -iv "dotnet4" || true)
-        
-        if [ -z "$projects" ]; then
-          echo "No source projects found in ./src, trying root level..."
-          projects=$(find . -maxdepth 2 -type f -name "*.csproj" | grep -v "test" | grep -iv "dotnet4" | head -n 5)
-        fi
-        
-        if [ -z "$projects" ]; then
-          echo "❌ No C# projects found!"
-          exit 1
-        fi
-        
-        echo "=========================================="
-        echo "Projects to build for analysis:"
-        echo "=========================================="
-        echo "$projects"
-        echo ""
-        
-        # Build each project
-        for proj in $projects; do
-          echo "Building: $proj"
-          dotnet build "$proj" --configuration Release --framework net8.0 || \
-          dotnet build "$proj" --configuration Release || \
-          echo "⚠️ Skipping $proj (build failed or incompatible framework)"
-        done
-        
-        echo ""
-        echo "✅ Build completed for CodeQL analysis"
+      # Build only the main source projects (exclude .NET Framework 4.x)
+      - name: Build for CodeQL Analysis
+        run: |
+          echo "Building C# projects for CodeQL analysis..."
+          
+          # Find all .csproj files excluding dotnet4 and test projects
+          projects=$(find ./src -type f -name "*.csproj" 2>/dev/null | grep -iv "dotnet4" || true)
+          
+          if [ -z "$projects" ]; then
+            echo "No source projects found in ./src, trying root level..."
+            projects=$(find . -maxdepth 2 -type f -name "*.csproj" | grep -v "test" | grep -iv "dotnet4" | head -n 5)
+          fi
+          
+          if [ -z "$projects" ]; then
+            echo "❌ No C# projects found!"
+            exit 1
+          fi
+          
+          echo "=========================================="
+          echo "Projects to build for analysis:"
+          echo "=========================================="
+          echo "$projects"
+          echo ""
+          
+          # Build each project
+          for proj in $projects; do
+            echo "Building: $proj"
+            dotnet build "$proj" --configuration Release --framework net8.0 || \
+            dotnet build "$proj" --configuration Release || \
+            echo "⚠️ Skipping $proj (build failed or incompatible framework)"
+          done
+          
+          echo ""
+          echo "✅ Build completed for CodeQL analysis"
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
-      with:
-        category: "/language:${{matrix.language}}"
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{matrix.language}}"
