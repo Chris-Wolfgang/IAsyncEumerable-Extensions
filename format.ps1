@@ -30,7 +30,7 @@ Write-Host ""
 
 # Verify dotnet format is available (built into .NET 6+ SDK)
 Write-Host "🔍 Checking for dotnet format..." -ForegroundColor Yellow
-$formatCheck = dotnet format --version 2>&1
+dotnet format --version | Out-Null
 
 if ($LASTEXITCODE -ne 0)
 {
