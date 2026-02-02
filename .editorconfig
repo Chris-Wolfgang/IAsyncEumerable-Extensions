@@ -376,6 +376,7 @@ dotnet_diagnostic.RS0030.severity = warning       # Using banned API - warn inst
 dotnet_diagnostic.MA0004.severity = none         # ConfigureAwait not needed in tests
 dotnet_diagnostic.MA0011.severity = none         # IFormatProvider not critical in tests
 dotnet_diagnostic.MA0026.severity = none         # TODO comments OK in tests
+dotnet_diagnostic.MA0040.severity = none         # CancellationToken flow not critical in tests
 dotnet_diagnostic.MA0048.severity = none         # File name matching not critical in tests
 dotnet_diagnostic.MA0051.severity = none         # Method length OK in tests
 
