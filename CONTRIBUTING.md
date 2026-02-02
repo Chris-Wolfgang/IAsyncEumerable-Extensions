@@ -37,7 +37,7 @@ You can contribute in several ways:
    - Building the project
    - Running automated tests
    - Checking code style and linting
-   - Running static analysis with 8 different analyzers
+   - Running static analysis with multiple static analyzers (see list below)
 
    **It is important to make sure that all CI steps pass before your PR can be merged.**
    - If any CI step fails, please review the error messages and update your PR as needed.
@@ -49,7 +49,7 @@ You can contribute in several ways:
 
 This project maintains **extremely high code quality standards** through multiple layers of static analysis and automated enforcement.
 
-### The 8 Analyzers
+### The 7 Analyzers
 
 All code is analyzed by these tools during build:
 
@@ -57,34 +57,30 @@ All code is analyzed by these tools during build:
    - Correctness, performance, and security rules
    - Latest analysis level enabled
 
-2. **StyleCop.Analyzers**
-   - Enforces consistent code style and formatting
-   - Documentation comment requirements
-
-3. **Roslynator.Analyzers**
+2. **Roslynator.Analyzers**
    - 500+ refactoring and code quality rules
    - Advanced C# pattern detection
 
-4. **AsyncFixer**
+3. **AsyncFixer**
    - Detects async/await anti-patterns
    - Ensures proper `ConfigureAwait()` usage
    - Prevents fire-and-forget async calls
 
-5. **Microsoft.VisualStudio.Threading.Analyzers**
+4. **Microsoft.VisualStudio.Threading.Analyzers**
    - Thread safety enforcement
    - Async method naming conventions
    - Deadlock prevention
 
-6. **Microsoft.CodeAnalysis.BannedApiAnalyzers**
+5. **Microsoft.CodeAnalysis.BannedApiAnalyzers**
    - Blocks usage of APIs listed in `BannedSymbols.txt`
    - Enforces async-first patterns (see below)
 
-7. **Meziantou.Analyzer**
+6. **Meziantou.Analyzer**
    - Comprehensive code quality checks
    - Performance optimizations
    - Best practice enforcement
 
-8. **SonarAnalyzer.CSharp**
+7. **SonarAnalyzer.CSharp**
    - Industry-standard code analysis
    - Security vulnerability detection
    - Code smell identification
