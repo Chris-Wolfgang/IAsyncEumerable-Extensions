@@ -132,7 +132,7 @@ public sealed class ChunkAsyncTests
 
         var chunked = source.ChunkAsync(2, tokenSource.Token);
 
-        await using var enumerator = chunked.GetAsyncEnumerator(tokenSource.Token);
+        await using var enumerator = chunked.GetAsyncEnumerator();
 
         Assert.True(await enumerator.MoveNextAsync());
 
