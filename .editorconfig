@@ -347,6 +347,12 @@ dotnet_diagnostic.SA1600.severity = warning
 dotnet_diagnostic.SA1601.severity = warning
 dotnet_diagnostic.SA1602.severity = warning
 
+# Library code should preserve synchronization context by default
+# Consumers decide whether to use ConfigureAwait(false) when calling library methods
+dotnet_diagnostic.MA0004.severity = none     # Meziantou: Use ConfigureAwait
+dotnet_diagnostic.S3216.severity = none      # SonarAnalyzer: ConfigureAwait
+dotnet_diagnostic.CA2007.severity = none     # .NET Analyzer: Use ConfigureAwait
+
 # Test projects - relaxed naming, no doc requirements
 [tests/**/*.cs]
 # Allow Test_Method_Names_With_Underscores
@@ -386,6 +392,9 @@ dotnet_diagnostic.S3216.severity = none          # ConfigureAwait not needed in 
 dotnet_diagnostic.S3776.severity = none          # Complexity OK in tests
 dotnet_diagnostic.S4049.severity = none          # Properties vs methods flexibility in tests
 
+# .NET Analyzer - Relax in tests
+dotnet_diagnostic.CA2007.severity = none         # ConfigureAwait not needed in tests
+
 # SecurityCodeScan - Relax in tests (but keep serious ones)
 dotnet_diagnostic.SCS0005.severity = suggestion  # Weak random OK for test data
 
@@ -403,6 +412,11 @@ dotnet_diagnostic.CA1707.severity = none
 
 # Relax async/await analyzer rules for benchmarks
 dotnet_diagnostic.AsyncFixer01.severity = none    # Allow unnecessary async/await in benchmarks
+
+# ConfigureAwait not needed in benchmarks
+dotnet_diagnostic.MA0004.severity = none          # Meziantou: Use ConfigureAwait
+dotnet_diagnostic.S3216.severity = none           # SonarAnalyzer: ConfigureAwait
+dotnet_diagnostic.CA2007.severity = none          # .NET Analyzer: Use ConfigureAwait
 
 # Banned API Analyzer - Just warn in benchmarks (allow for benchmarking purposes)
 dotnet_diagnostic.RS0030.severity = warning       # Using banned API - warn instead of error in benchmarks
