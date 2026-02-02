@@ -133,7 +133,7 @@ dotnet_diagnostic.S2696.severity = suggestion    # Instance members should not w
 dotnet_diagnostic.S2933.severity = warning       # Fields that are only assigned in the constructor should be "readonly"
 dotnet_diagnostic.S2934.severity = warning       # Property assignments should not be made for "readonly" fields
 dotnet_diagnostic.S3215.severity = suggestion    # "interface" instances should not be cast to concrete types
-dotnet_diagnostic.S3216.severity = none          # "ConfigureAwait(false)" should be used - disabled to align with VSTHRD111 (ConfigureAwait not required for modern .NET library code)
+dotnet_diagnostic.S3216.severity = suggestion    # "ConfigureAwait(false)" should be used in library code (especially for .NET Framework 4.6.2 / .NET Standard 2.0 targets)
 dotnet_diagnostic.S3218.severity = suggestion    # Inner class members should not shadow outer class "static" or type members
 dotnet_diagnostic.S3236.severity = warning       # Caller information arguments should not be provided explicitly
 dotnet_diagnostic.S3242.severity = suggestion    # Method parameters should be declared with base types
@@ -347,7 +347,6 @@ dotnet_diagnostic.CA1707.severity = error
 
 # Source code - strict rules
 [src/**/*.cs]
-dotnet_diagnostic.SA1600.severity = warning
 
 # Test projects - relaxed naming, no doc requirements
 [tests/**/*.cs]
