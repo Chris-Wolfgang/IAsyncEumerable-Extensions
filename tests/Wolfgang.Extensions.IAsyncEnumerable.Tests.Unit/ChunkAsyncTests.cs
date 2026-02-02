@@ -140,7 +140,7 @@ public sealed class ChunkAsyncTests
 
         await Assert.ThrowsAsync<OperationCanceledException>
         (
-            async () => await enumerator.MoveNextAsync().ConfigureAwait(false)
+            async () => await enumerator.MoveNextAsync()
         );
     }
 
@@ -168,7 +168,7 @@ public sealed class ChunkAsyncTests
     {
         foreach (var value in values)
         {
-            await Task.Delay(delay).ConfigureAwait(false);
+            await Task.Delay(delay);
             yield return value;
         }
     }
