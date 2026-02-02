@@ -2,7 +2,7 @@
 
 High-performance, production-grade extension methods for `IAsyncEnumerable<T>` with comprehensive test coverage and strict code quality enforcement.
 
-[![License: MPL-2.0](https://img.shields.io/badge/License-MPL--2.0-blue.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-Multi--Targeted-purple.svg)](https://dotnet.microsoft.com/)
 
 ---
@@ -159,7 +159,7 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for:
 
 ## 📄 License
 
-This project is licensed under the **Mozilla Public License 2.0 (MPL-2.0)**. The [LICENSE](LICENSE) file in this repository is the authoritative source for licensing terms. Note that older versions of the `Wolfgang.Extensions.IAsyncEnumerable` NuGet package may still declare the MIT license in their metadata; future releases will update the NuGet `PackageLicenseExpression` to `MPL-2.0` to match this repository.
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
 ---
 
