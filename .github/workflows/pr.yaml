@@ -49,6 +49,7 @@ jobs:
 
       - name: Check Code Formatting
         run: |
+          # dotnet format is built into .NET 6+ SDK (no separate installation needed)
           # Find solution file
           solution=$(find . -maxdepth 2 \( -name "*.sln" -o -name "*.slnx" \) | head -n 1)
           
