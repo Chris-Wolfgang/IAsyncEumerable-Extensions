@@ -335,11 +335,6 @@ dotnet_diagnostic.SA1111.severity = none
 dotnet_diagnostic.SA1500.severity = none
 dotnet_diagnostic.SA1101.severity = none
 
-# Documentation - warning by default
-dotnet_diagnostic.SA1600.severity = warning
-dotnet_diagnostic.SA1601.severity = warning
-dotnet_diagnostic.SA1602.severity = warning
-
 # Naming - error by default (strict)
 dotnet_diagnostic.SA1300.severity = error
 dotnet_diagnostic.IDE1006.severity = error
@@ -347,6 +342,10 @@ dotnet_diagnostic.CA1707.severity = error
 
 # Source code - strict rules
 [src/**/*.cs]
+# Documentation required
+dotnet_diagnostic.SA1600.severity = warning
+dotnet_diagnostic.SA1601.severity = warning
+dotnet_diagnostic.SA1602.severity = warning
 
 # Test projects - relaxed naming, no doc requirements
 [tests/**/*.cs]
