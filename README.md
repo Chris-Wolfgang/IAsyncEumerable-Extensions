@@ -4,6 +4,7 @@ High-performance, production-grade extension methods for `IAsyncEnumerable<T>` w
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-Multi--Targeted-purple.svg)](https://dotnet.microsoft.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)](https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions)
 
 ---
 
@@ -165,8 +166,10 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ## 📚 Documentation
 
-- **API Documentation:** Generated via DocFX (see `docfx_project/`)
+- **GitHub Repository:** [https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions](https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions)
+- **API Documentation:** [https://chris-wolfgang.github.io/IAsyncEnumerable-Extensions/](https://chris-wolfgang.github.io/IAsyncEnumerable-Extensions/) (Generated via DocFX)
 - **Formatting Guide:** [README-FORMATTING.md](README-FORMATTING.md)
+- **Contributing Guide:** [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
 
