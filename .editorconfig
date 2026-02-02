@@ -189,7 +189,7 @@ dotnet_diagnostic.CA1829.severity = warning       # Use Length/Count property in
 dotnet_diagnostic.CA1851.severity = warning       # Possible multiple enumerations of IEnumerable collection
 
 # Async/IAsyncEnumerable specific rules (CRITICAL for this library)
-dotnet_diagnostic.CA2007.severity = none          # ConfigureAwait - not needed in library code targeting modern .NET
+dotnet_diagnostic.CA2007.severity = suggestion    # ConfigureAwait - recommend usage in library async code
 dotnet_diagnostic.CA2012.severity = error         # Use ValueTasks correctly
 dotnet_diagnostic.CA2016.severity = warning       # Forward CancellationToken parameter
 
