@@ -347,7 +347,6 @@ dotnet_diagnostic.CA1707.severity = error
 
 # Source code - strict rules
 [src/**/*.cs]
-dotnet_diagnostic.SA1600.severity = warning
 
 # Test projects - relaxed naming, no doc requirements
 [tests/**/*.cs]
