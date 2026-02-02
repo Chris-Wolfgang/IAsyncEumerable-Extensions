@@ -44,7 +44,7 @@ public static class IAsyncEnumerableExtensions
             throw new ArgumentOutOfRangeException(nameof(maxChunkSize), "Chunk size must be greater than zero.");
         }
 
-        var enumerator = source.GetAsyncEnumerator(token);
+        await using var enumerator = source.GetAsyncEnumerator(token);
 
         if (!await enumerator.MoveNextAsync().ConfigureAwait(false))
         {
