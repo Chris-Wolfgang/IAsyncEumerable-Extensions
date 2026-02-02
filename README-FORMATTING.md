@@ -4,7 +4,7 @@ This repository uses `dotnet format` to enforce consistent C# code style.
 
 ## Prerequisites
 
-The `dotnet format` command is **built into the .NET SDK** starting with .NET 6 and later. Since this project requires .NET 8.0 SDK or later, you already have `dotnet format` available—no separate tool installation is needed.
+The `dotnet format` command is **built into the .NET SDK** starting with .NET 6 and later. Since this project requires .NET 8.0 SDK or later, you already have `dotnet format` available--no separate tool installation is needed.
 
 > **Note:** The standalone `dotnet-format` global tool was deprecated when `dotnet format` was integrated into the .NET 6 SDK in August 2021.
 
