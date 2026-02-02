@@ -37,7 +37,7 @@ You can contribute in several ways:
    - Building the project
    - Running automated tests
    - Checking code style and linting
-   - Running static analysis with 7 different analyzers
+   - Running static analysis with multiple static analyzers (see list below)
 
    **It is important to make sure that all CI steps pass before your PR can be merged.**
    - If any CI step fails, please review the error messages and update your PR as needed.
