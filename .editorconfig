@@ -178,7 +178,7 @@ dotnet_diagnostic.SCS0031.severity = warning     # SQL injection via EF ExecuteS
 # Performance-critical rules for library code
 dotnet_diagnostic.CA1062.severity = warning       # Validate arguments of public methods
 dotnet_diagnostic.CA1508.severity = warning       # Avoid dead conditional code
-dotnet_diagnostic.CA1510.severity = none          # Disabled: recommends ArgumentNullException.ThrowIfNull (.NET 6.0+ only)
+dotnet_diagnostic.CA1510.severity = none          # Disabled for multi-targeting: recommends ArgumentNullException.ThrowIfNull (not available on net462/netstandard2.0)
 dotnet_diagnostic.CA1810.severity = warning       # Initialize static fields inline
 dotnet_diagnostic.CA1822.severity = suggestion    # Mark members as static
 dotnet_diagnostic.CA1825.severity = warning       # Avoid zero-length array allocations
