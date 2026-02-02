@@ -345,14 +345,6 @@ dotnet_diagnostic.SA1300.severity = error
 dotnet_diagnostic.IDE1006.severity = error
 dotnet_diagnostic.CA1707.severity = error
 
-# VSTHRD (Visual Studio Threading) Rules
-dotnet_diagnostic.VSTHRD100.severity = warning    # Avoid async void methods
-dotnet_diagnostic.VSTHRD101.severity = warning    # Avoid unsupported async delegates
-dotnet_diagnostic.VSTHRD103.severity = warning    # Call async methods when in async method
-dotnet_diagnostic.VSTHRD110.severity = warning    # Observe result of async calls
-dotnet_diagnostic.VSTHRD111.severity = none       # Allow synchronous Cancel() - CancelAsync() often overkill
-dotnet_diagnostic.VSTHRD200.severity = suggestion # Use Async naming convention
-
 # Source code - strict rules
 [src/**/*.cs]
 dotnet_diagnostic.SA1300.severity = error
