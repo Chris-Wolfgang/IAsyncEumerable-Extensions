@@ -16,5 +16,4 @@
     <ProjectReference Include="..\..\src\Wolfgang.Extensions.IAsyncEnumerable\Wolfgang.Extensions.IAsyncEnumerable.csproj" />
   </ItemGroup>
 
-
 </Project>
