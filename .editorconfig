@@ -133,7 +133,7 @@ dotnet_diagnostic.S2696.severity = suggestion    # Instance members should not w
 dotnet_diagnostic.S2933.severity = warning       # Fields that are only assigned in the constructor should be "readonly"
 dotnet_diagnostic.S2934.severity = warning       # Property assignments should not be made for "readonly" fields
 dotnet_diagnostic.S3215.severity = suggestion    # "interface" instances should not be cast to concrete types
-dotnet_diagnostic.S3216.severity = none          # "ConfigureAwait(false)" should be used - disabled to align with VSTHRD111 (ConfigureAwait not required for modern .NET library code)
+dotnet_diagnostic.S3216.severity = suggestion    # "ConfigureAwait(false)" should be used in library code (especially for .NET Framework 4.6.2 / .NET Standard 2.0 targets)
 dotnet_diagnostic.S3218.severity = suggestion    # Inner class members should not shadow outer class "static" or type members
 dotnet_diagnostic.S3236.severity = warning       # Caller information arguments should not be provided explicitly
 dotnet_diagnostic.S3242.severity = suggestion    # Method parameters should be declared with base types
@@ -189,7 +189,7 @@ dotnet_diagnostic.CA1829.severity = warning       # Use Length/Count property in
 dotnet_diagnostic.CA1851.severity = warning       # Possible multiple enumerations of IEnumerable collection
 
 # Async/IAsyncEnumerable specific rules (CRITICAL for this library)
-dotnet_diagnostic.CA2007.severity = none          # ConfigureAwait - not needed in library code targeting modern .NET
+dotnet_diagnostic.CA2007.severity = suggestion    # ConfigureAwait - recommend usage in library async code
 dotnet_diagnostic.CA2012.severity = error         # Use ValueTasks correctly
 dotnet_diagnostic.CA2016.severity = warning       # Forward CancellationToken parameter
 
@@ -345,20 +345,8 @@ dotnet_diagnostic.SA1300.severity = error
 dotnet_diagnostic.IDE1006.severity = error
 dotnet_diagnostic.CA1707.severity = error
 
-# VSTHRD (Visual Studio Threading) Rules
-dotnet_diagnostic.VSTHRD100.severity = warning    # Avoid async void methods
-dotnet_diagnostic.VSTHRD101.severity = warning    # Avoid unsupported async delegates
-dotnet_diagnostic.VSTHRD103.severity = warning    # Call async methods when in async method
-dotnet_diagnostic.VSTHRD110.severity = warning    # Observe result of async calls
-dotnet_diagnostic.VSTHRD111.severity = none       # Allow synchronous Cancel() - CancelAsync() often overkill
-dotnet_diagnostic.VSTHRD200.severity = suggestion # Use Async naming convention
-
 # Source code - strict rules
 [src/**/*.cs]
-dotnet_diagnostic.SA1300.severity = error
-dotnet_diagnostic.IDE1006.severity = error
-dotnet_diagnostic.CA1707.severity = error
-dotnet_diagnostic.SA1600.severity = warning
 
 # Test projects - relaxed naming, no doc requirements
 [tests/**/*.cs]
