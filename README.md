@@ -77,18 +77,17 @@ This library supports multiple .NET versions:
 
 ## 🔍 Code Quality & Static Analysis
 
-This project enforces **strict code quality standards** through **8 specialized analyzers** and custom async-first rules:
+This project enforces **strict code quality standards** through **7 specialized analyzers** and custom async-first rules:
 
 ### Analyzers in Use
 
 1. **Microsoft.CodeAnalysis.NetAnalyzers** - Built-in .NET analyzers for correctness and performance
-2. **StyleCop.Analyzers** - Code style and consistency enforcement
-3. **Roslynator.Analyzers** - Advanced refactoring and code quality rules
-4. **AsyncFixer** - Async/await best practices and anti-pattern detection
-5. **Microsoft.VisualStudio.Threading.Analyzers** - Thread safety and async patterns
-6. **Microsoft.CodeAnalysis.BannedApiAnalyzers** - Prevents usage of banned synchronous APIs
-7. **Meziantou.Analyzer** - Comprehensive code quality rules
-8. **SonarAnalyzer.CSharp** - Industry-standard code analysis
+2. **Roslynator.Analyzers** - Advanced refactoring and code quality rules
+3. **AsyncFixer** - Async/await best practices and anti-pattern detection
+4. **Microsoft.VisualStudio.Threading.Analyzers** - Thread safety and async patterns
+5. **Microsoft.CodeAnalysis.BannedApiAnalyzers** - Prevents usage of banned synchronous APIs
+6. **Meziantou.Analyzer** - Comprehensive code quality rules
+7. **SonarAnalyzer.CSharp** - Industry-standard code analysis
 
 ### Async-First Enforcement
 
