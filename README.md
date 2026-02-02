@@ -167,7 +167,6 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 - **API Documentation:** Generated via DocFX (see `docfx_project/`)
 - **Formatting Guide:** [README-FORMATTING.md](README-FORMATTING.md)
-- **Setup Instructions:** [SETUP.md](SETUP.md)
 
 ---
 
