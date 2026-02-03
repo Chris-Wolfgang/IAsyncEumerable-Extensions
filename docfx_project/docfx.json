@@ -5,12 +5,17 @@
       "src": [
         {
           "files": [
-			"src/<path>/<project>.csproj"
+			"src/Wolfgang.Extensions.IAsyncEnumerable/Wolfgang.Extensions.IAsyncEnumerable.csproj"
           ],
           "src": "../"
         }
       ],
-      "dest": "api"
+      "dest": "api",
+      "properties": {
+        "TargetFramework": "net8.0"
+      },
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
     }
   ],
   "build": {
@@ -37,8 +42,8 @@
       "default"
     ],
     "globalMetadata": {
-      "_appName": "",
-      "_appTitle": "<title>",
+      "_appName": "IAsyncEnumerable Extensions",
+      "_appTitle": "Wolfgang.Extensions.IAsyncEnumerable Documentation",
       "_enableSearch": true,
       "pdf": true
     }
