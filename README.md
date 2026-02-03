@@ -89,21 +89,6 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 - **Formatting Guide:** [README-FORMATTING.md](README-FORMATTING.md)
 - **Contributing Guide:** [CONTRIBUTING.md](CONTRIBUTING.md)
 
-
-### Async-First Enforcement
-
-This library uses **`BannedSymbols.txt`** to prohibit synchronous APIs and enforce async-first patterns:
-
-**Blocked APIs Include:**
-- ❌ `Task.Wait()`, `Task.Result` - Use `await` instead
-- ❌ `Thread.Sleep()` - Use `await Task.Delay()` instead
-- ❌ Synchronous file I/O (`File.ReadAllText`) - Use async versions
-- ❌ Synchronous stream operations - Use `ReadAsync()`, `WriteAsync()`
-- ❌ `Parallel.For/ForEach` - Use `Task.WhenAll()` or `Parallel.ForEachAsync()`
-- ❌ Obsolete APIs (`WebClient`, `BinaryFormatter`)
-
-**Why?** To ensure all code is **truly async** and **non-blocking** for optimal performance in async contexts.
-
 ---
 
 ## 🛠️ Building from Source
@@ -171,6 +156,20 @@ This project enforces **strict code quality standards** through **7 specialized 
 5. **Microsoft.CodeAnalysis.BannedApiAnalyzers** - Prevents usage of banned synchronous APIs
 6. **Meziantou.Analyzer** - Comprehensive code quality rules
 7. **SonarAnalyzer.CSharp** - Industry-standard code analysis
+
+### Async-First Enforcement
+
+This library uses **`BannedSymbols.txt`** to prohibit synchronous APIs and enforce async-first patterns:
+
+**Blocked APIs Include:**
+- ❌ `Task.Wait()`, `Task.Result` - Use `await` instead
+- ❌ `Thread.Sleep()` - Use `await Task.Delay()` instead
+- ❌ Synchronous file I/O (`File.ReadAllText`) - Use async versions
+- ❌ Synchronous stream operations - Use `ReadAsync()`, `WriteAsync()`
+- ❌ `Parallel.For/ForEach` - Use `Task.WhenAll()` or `Parallel.ForEachAsync()`
+- ❌ Obsolete APIs (`WebClient`, `BinaryFormatter`)
+
+**Why?** To ensure all code is **truly async** and **non-blocking** for optimal performance in async contexts.
 
 ---
 
