@@ -420,3 +420,8 @@ FodyWeavers.xsd
 # Test results and coverage
 TestResults/
 CoverageReport/
+
+# DocFX generated files
+docfx_project/_site/
+docfx_project/api/
+docfx_project/obj/
