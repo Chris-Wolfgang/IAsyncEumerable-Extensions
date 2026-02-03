@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using System.Runtime.CompilerServices;
+using System.Threading;
 
 [assembly: InternalsVisibleTo("Wolfgang.Extensions.IAsyncEnumerable.Benchmarks")]
 [assembly: InternalsVisibleTo("Wolfgang.Extensions.IAsyncEnumerable.Tests.Unit")]
