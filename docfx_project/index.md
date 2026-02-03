@@ -12,6 +12,9 @@ High-performance, production-grade extension methods for `IAsyncEnumerable<T>` w
 
 ---
 
+> [!TIP]
+> **📘 API Reference:** [Browse the full API documentation](api/index.html)
+
 ## 📦 Installation
 
 ```bash
