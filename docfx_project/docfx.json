@@ -39,12 +39,17 @@
     "output": "_site",
     "template": [
       "default",
-      "modern"
+      "modern",
+      "modern-dark"
     ],
     "globalMetadata": {
       "_appName": "IAsyncEnumerable Extensions",
       "_appTitle": "Wolfgang.Extensions.IAsyncEnumerable Documentation",
       "_enableSearch": true,
+      "_appFooter": "Made with DocFX",
+      "_disableSidebar": false,
+      "_disableTocFilter": false,
+      "_enableDarkMode": true,
       "pdf": true
     }
   }
