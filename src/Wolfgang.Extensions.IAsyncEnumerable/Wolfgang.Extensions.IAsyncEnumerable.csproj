@@ -9,7 +9,7 @@
 		</TargetFrameworks>
 		<LangVersion>14</LangVersion>
 		<Nullable>enable</Nullable>
-		<Version>0.1.0-rc2</Version>
+		<Version>0.1.0</Version>
 		<Title>$(AssemblyName)</Title>
 		<Authors>Chris Wolfgang</Authors>
 		<Description>A collection of extension methods for IAsyncEnumerable</Description>
