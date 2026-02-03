@@ -76,19 +76,19 @@ This library supports multiple .NET versions:
 
 ---
 
-## 🔍 Code Quality & Static Analysis
+## 📄 License
 
-This project enforces **strict code quality standards** through **7 specialized analyzers** and custom async-first rules:
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
-### Analyzers in Use
+---
 
-1. **Microsoft.CodeAnalysis.NetAnalyzers** - Built-in .NET analyzers for correctness and performance
-2. **Roslynator.Analyzers** - Advanced refactoring and code quality rules
-3. **AsyncFixer** - Async/await best practices and anti-pattern detection
-4. **Microsoft.VisualStudio.Threading.Analyzers** - Thread safety and async patterns
-5. **Microsoft.CodeAnalysis.BannedApiAnalyzers** - Prevents usage of banned synchronous APIs
-6. **Meziantou.Analyzer** - Comprehensive code quality rules
-7. **SonarAnalyzer.CSharp** - Industry-standard code analysis
+## 📚 Documentation
+
+- **GitHub Repository:** [https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions](https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions)
+- **API Documentation:** [https://chris-wolfgang.github.io/IAsyncEnumerable-Extensions/](https://chris-wolfgang.github.io/IAsyncEnumerable-Extensions/) (Generated via DocFX)
+- **Formatting Guide:** [README-FORMATTING.md](README-FORMATTING.md)
+- **Contributing Guide:** [CONTRIBUTING.md](CONTRIBUTING.md)
+
 
 ### Async-First Enforcement
 
@@ -158,18 +158,19 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for:
 
 ---
 
-## 📄 License
+## 🔍 Code Quality & Static Analysis
 
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+This project enforces **strict code quality standards** through **7 specialized analyzers** and custom async-first rules:
 
----
+### Analyzers in Use
 
-## 📚 Documentation
-
-- **GitHub Repository:** [https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions](https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions)
-- **API Documentation:** [https://chris-wolfgang.github.io/IAsyncEnumerable-Extensions/](https://chris-wolfgang.github.io/IAsyncEnumerable-Extensions/) (Generated via DocFX)
-- **Formatting Guide:** [README-FORMATTING.md](README-FORMATTING.md)
-- **Contributing Guide:** [CONTRIBUTING.md](CONTRIBUTING.md)
+1. **Microsoft.CodeAnalysis.NetAnalyzers** - Built-in .NET analyzers for correctness and performance
+2. **Roslynator.Analyzers** - Advanced refactoring and code quality rules
+3. **AsyncFixer** - Async/await best practices and anti-pattern detection
+4. **Microsoft.VisualStudio.Threading.Analyzers** - Thread safety and async patterns
+5. **Microsoft.CodeAnalysis.BannedApiAnalyzers** - Prevents usage of banned synchronous APIs
+6. **Meziantou.Analyzer** - Comprehensive code quality rules
+7. **SonarAnalyzer.CSharp** - Industry-standard code analysis
 
 ---
 
@@ -179,3 +180,5 @@ Built with:
 - [Microsoft.Bcl.AsyncInterfaces](https://www.nuget.org/packages/Microsoft.Bcl.AsyncInterfaces/) for backward compatibility
 - Comprehensive analyzer packages for code quality enforcement
 - .NET async/await patterns for optimal performance
+
+
