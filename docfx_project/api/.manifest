@@ -1,0 +1,5 @@
+{
+  "Wolfgang.Extensions.IAsyncEnumerable": "Wolfgang.Extensions.IAsyncEnumerable.yml",
+  "Wolfgang.Extensions.IAsyncEnumerable.IAsyncEnumerableExtensions": "Wolfgang.Extensions.IAsyncEnumerable.IAsyncEnumerableExtensions.yml",
+  "Wolfgang.Extensions.IAsyncEnumerable.IAsyncEnumerableExtensions.ChunkAsync``1(System.Collections.Generic.IAsyncEnumerable{``0},System.Int32,System.Threading.CancellationToken)": "Wolfgang.Extensions.IAsyncEnumerable.IAsyncEnumerableExtensions.yml"
+}
