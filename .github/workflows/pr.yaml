@@ -530,3 +530,54 @@ jobs:
           name: devskim-results
           path: devskim-results.txt
           if-no-files-found: warn
+
+  # ============================================================================
+  # CodeQL Analysis (Runs in parallel with tests)
+  # ============================================================================
+  codeql-analysis:
+    name: "CodeQL"
+    runs-on: ubuntu-latest
+    if: github.repository != 'Chris-Wolfgang/repo-template'
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: csharp
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+
+      - name: Build for CodeQL Analysis
+        run: |
+          echo "Building solution for CodeQL analysis..."
+          
+          # Find solution file (.sln or .slnx)
+          solution=$(find . -maxdepth 2 \( -name "*.sln" -o -name "*.slnx" \) | head -n 1)
+          
+          if [ -n "$solution" ]; then
+            echo "Found solution: $solution"
+            dotnet restore "$solution"
+            dotnet build "$solution" --configuration Release --no-restore
+          else
+            echo "No solution file found, building all projects..."
+            dotnet restore
+            dotnet build --configuration Release --no-restore
+          fi
+          
+          echo "✅ Build completed for CodeQL analysis"
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:csharp"
