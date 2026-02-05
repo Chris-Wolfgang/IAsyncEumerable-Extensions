@@ -13,7 +13,7 @@ High-performance, production-grade extension methods for `IAsyncEnumerable<T>` w
 ---
 
 > [!TIP]
-> **📘 API Reference:** [Browse the full API documentation](api/toc.html)
+> **📘 API Reference:** [Browse the full API documentation](xref:Wolfgang.Extensions.IAsyncEnumerable)
 
 ## 📦 Installation
 
