@@ -205,7 +205,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 - **Formatting Guide:** [README-FORMATTING.md](README-FORMATTING.md)
 - **Contributing Guide:** [CONTRIBUTING.md](CONTRIBUTING.md)
 
----
+--- 
 
 ## 🙏 Acknowledgments
 
