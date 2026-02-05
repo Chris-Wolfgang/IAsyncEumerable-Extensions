@@ -54,7 +54,7 @@ items:
   source:
     remote:
       path: src/Wolfgang.Extensions.IAsyncEnumerable/IAsyncEnumerableExtensions.cs
-      branch: copilot/fix-docfx-documentation-build
+      branch: main
       repo: https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions
     id: ChunkAsync
     path: ../src/Wolfgang.Extensions.IAsyncEnumerable/IAsyncEnumerableExtensions.cs
