@@ -146,6 +146,40 @@ dotnet format --verify-no-changes
 
 See [README-FORMATTING.md](README-FORMATTING.md) for detailed formatting guidelines.
 
+### Building Documentation
+
+This project uses [DocFX](https://dotnet.github.io/docfx/) to generate API documentation:
+
+```bash
+# Install DocFX (one-time setup)
+dotnet tool install -g docfx
+
+# Generate API metadata and build documentation
+cd docfx_project
+docfx metadata  # Extract API metadata from source code
+docfx build     # Build HTML documentation
+
+# Documentation is generated in the docs/ folder at the repository root
+```
+
+The documentation is automatically built and deployed to GitHub Pages when changes are pushed to the `main` branch.
+
+**Local Preview:**
+```bash
+# Serve documentation locally (with live reload)
+cd docfx_project
+docfx build --serve
+
+# Open http://localhost:8080 in your browser
+```
+
+**Documentation Structure:**
+- `docfx_project/` - DocFX configuration and source files
+- `docs/` - Generated HTML documentation (published to GitHub Pages)
+- `docfx_project/index.md` - Main landing page content
+- `docfx_project/docs/` - Additional documentation articles
+- `docfx_project/api/` - Auto-generated API reference YAML files
+
 ---
 
 ## 🤝 Contributing

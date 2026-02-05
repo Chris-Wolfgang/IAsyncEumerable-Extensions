@@ -40,16 +40,18 @@ jobs:
 
       - name: Verify build output
         run: |
-          if [ ! -d "docfx_project/_site" ]; then
-            echo "Error: _site directory not found!"
+          if [ ! -d "docs" ]; then
+            echo "Error: docs directory not found!"
             exit 1
           fi
-          echo "Build successful. Contents of _site:"
-          ls -la docfx_project/_site
+          echo "Build successful. Contents of docs:"
+          ls -la docs
+          echo "API documentation:"
+          ls -la docs/api
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docfx_project/_site
+          publish_dir: ./docs
           force_orphan: true

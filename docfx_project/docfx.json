@@ -36,7 +36,7 @@
         ]
       }
     ],
-    "output": "_site",
+    "output": "../docs",
     "template": [
       "default",
       "modern",
@@ -50,6 +50,7 @@
       "_disableSidebar": false,
       "_disableTocFilter": false,
       "_enableDarkMode": true,
+      "_baseUrl": "/IAsyncEnumerable-Extensions/",
       "pdf": true
     }
   }
