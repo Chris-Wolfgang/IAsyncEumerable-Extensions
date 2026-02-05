@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: src/Wolfgang.Extensions.IAsyncEnumerable/IAsyncEnumerableExtensions.cs
-      branch: copilot/fix-docfx-configuration
+      branch: main
       repo: https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions
     id: IAsyncEnumerableExtensions
     path: ../src/Wolfgang.Extensions.IAsyncEnumerable/IAsyncEnumerableExtensions.cs
@@ -54,7 +54,7 @@ items:
   source:
     remote:
       path: src/Wolfgang.Extensions.IAsyncEnumerable/IAsyncEnumerableExtensions.cs
-      branch: copilot/fix-docfx-configuration
+      branch: main
       repo: https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions
     id: ChunkAsync
     path: ../src/Wolfgang.Extensions.IAsyncEnumerable/IAsyncEnumerableExtensions.cs
