@@ -84,10 +84,10 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ## 📚 Documentation
 
-- [**GitHub Repository:**](https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions)
-- [**API Documentation:**](https://chris-wolfgang.github.io/IAsyncEnumerable-Extensions/) (Generated via DocFX)
-- [**Formatting Guide:**](README-FORMATTING.md)
-- [**Contributing Guide:**](CONTRIBUTING.md)
+- [**GitHub Repository**](https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions)
+- [**API Documentation**](https://chris-wolfgang.github.io/IAsyncEnumerable-Extensions/) (Generated via DocFX)
+- [**Formatting Guide**](README-FORMATTING.md)
+- [**Contributing Guide**](CONTRIBUTING.md)
 
 ---
 
