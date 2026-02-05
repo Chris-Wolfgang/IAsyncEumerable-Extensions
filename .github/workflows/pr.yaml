@@ -8,7 +8,7 @@ name: PR Checks v2 (Gated)
 permissions:
   contents: read
   
-on:
+'on':
   pull_request: 
     branches: 
       - main
