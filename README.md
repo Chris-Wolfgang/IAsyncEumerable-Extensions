@@ -14,7 +14,7 @@ High-performance, production-grade extension methods for `IAsyncEnumerable<T>` w
 dotnet add package Wolfgang.Extensions.IAsyncEnumerable
 ```
 
-**NuGet Package:** Coming soon to [NuGet.org](https://www.nuget.org/)
+**NuGet Package:** https://www.nuget.org/packages/Wolfgang.Extensions.IAsyncEnumerable/
 
 ---
 
@@ -76,33 +76,18 @@ This library supports multiple .NET versions:
 
 ---
 
-## 🔍 Code Quality & Static Analysis
+## 📄 License
 
-This project enforces **strict code quality standards** through **7 specialized analyzers** and custom async-first rules:
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
-### Analyzers in Use
+---
 
-1. **Microsoft.CodeAnalysis.NetAnalyzers** - Built-in .NET analyzers for correctness and performance
-2. **Roslynator.Analyzers** - Advanced refactoring and code quality rules
-3. **AsyncFixer** - Async/await best practices and anti-pattern detection
-4. **Microsoft.VisualStudio.Threading.Analyzers** - Thread safety and async patterns
-5. **Microsoft.CodeAnalysis.BannedApiAnalyzers** - Prevents usage of banned synchronous APIs
-6. **Meziantou.Analyzer** - Comprehensive code quality rules
-7. **SonarAnalyzer.CSharp** - Industry-standard code analysis
+## 📚 Documentation
 
-### Async-First Enforcement
-
-This library uses **`BannedSymbols.txt`** to prohibit synchronous APIs and enforce async-first patterns:
-
-**Blocked APIs Include:**
-- ❌ `Task.Wait()`, `Task.Result` - Use `await` instead
-- ❌ `Thread.Sleep()` - Use `await Task.Delay()` instead
-- ❌ Synchronous file I/O (`File.ReadAllText`) - Use async versions
-- ❌ Synchronous stream operations - Use `ReadAsync()`, `WriteAsync()`
-- ❌ `Parallel.For/ForEach` - Use `Task.WhenAll()` or `Parallel.ForEachAsync()`
-- ❌ Obsolete APIs (`WebClient`, `BinaryFormatter`)
-
-**Why?** To ensure all code is **truly async** and **non-blocking** for optimal performance in async contexts.
+- [**GitHub Repository**](https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions)
+- [**API Documentation**](https://chris-wolfgang.github.io/IAsyncEnumerable-Extensions/) (Generated via DocFX)
+- [**Formatting Guide**](README-FORMATTING.md)
+- [**Contributing Guide**](CONTRIBUTING.md)
 
 ---
 
@@ -192,18 +177,33 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for:
 
 ---
 
-## 📄 License
+## 🔍 Code Quality & Static Analysis
 
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+This project enforces **strict code quality standards** through **7 specialized analyzers** and custom async-first rules:
 
----
+### Analyzers in Use
 
-## 📚 Documentation
+1. **Microsoft.CodeAnalysis.NetAnalyzers** - Built-in .NET analyzers for correctness and performance
+2. **Roslynator.Analyzers** - Advanced refactoring and code quality rules
+3. **AsyncFixer** - Async/await best practices and anti-pattern detection
+4. **Microsoft.VisualStudio.Threading.Analyzers** - Thread safety and async patterns
+5. **Microsoft.CodeAnalysis.BannedApiAnalyzers** - Prevents usage of banned synchronous APIs
+6. **Meziantou.Analyzer** - Comprehensive code quality rules
+7. **SonarAnalyzer.CSharp** - Industry-standard code analysis
 
-- **GitHub Repository:** [https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions](https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions)
-- **API Documentation:** https://chris-wolfgang.github.io/IAsyncEnumerable-Extensions/
-- **Formatting Guide:** [README-FORMATTING.md](README-FORMATTING.md)
-- **Contributing Guide:** [CONTRIBUTING.md](CONTRIBUTING.md)
+### Async-First Enforcement
+
+This library uses **`BannedSymbols.txt`** to prohibit synchronous APIs and enforce async-first patterns:
+
+**Blocked APIs Include:**
+- ❌ `Task.Wait()`, `Task.Result` - Use `await` instead
+- ❌ `Thread.Sleep()` - Use `await Task.Delay()` instead
+- ❌ Synchronous file I/O (`File.ReadAllText`) - Use async versions
+- ❌ Synchronous stream operations - Use `ReadAsync()`, `WriteAsync()`
+- ❌ `Parallel.For/ForEach` - Use `Task.WhenAll()` or `Parallel.ForEachAsync()`
+- ❌ Obsolete APIs (`WebClient`, `BinaryFormatter`)
+
+**Why?** To ensure all code is **truly async** and **non-blocking** for optimal performance in async contexts.
 
 ---
 
@@ -213,3 +213,4 @@ Built with:
 - [Microsoft.Bcl.AsyncInterfaces](https://www.nuget.org/packages/Microsoft.Bcl.AsyncInterfaces/) for backward compatibility
 - Comprehensive analyzer packages for code quality enforcement
 - .NET async/await patterns for optimal performance
+
